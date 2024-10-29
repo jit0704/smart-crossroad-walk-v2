@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스마트 교차로 & 횡단보도 통합 관제 시스템 퍼블리싱 V2</title>
+    <link rel="stylesheet" href="/base/css/pub/base.css" />
+    <link rel="stylesheet" href="/base/css/pub/ia.css" />
+    <script src="/base/js/lib/jquery-3.5.1.min.js"></script>
+    <script src="/base/js/pub/ia.js"></script>
+    <style>
+      .ia-content-header {
+        background: #1e5f8d;
+      }
+      .ia-tbl table .col-type {
+        width: 100px !important;
+      }
+      .ia-tbl table td.col-1depth,
+      .ia-tbl table td.col-2depth,
+      .ia-tbl table td.col-3depth,
+      .ia-tbl table td.col-4depth,
+      .ia-tbl table td.col-5depth {
+        width: 13%;
+        text-align: center;
+      }
+      .ia-tab-content tr:hover td {
+        background: #c1ddef !important;
+      }
+      .col-memo p {
+        color: red;
+      }
+
+      .c-txt {
+        padding-left: 10px;
+        text-indent: -10px;
+        color: green !important;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ia-wrap">
+      <div id="ia-container">
+        <div id="ia-content">
+          <div class="ia-content-header">
+            <div class="ia-in-sec">
+              <h1 class="ia-h1">스마트 교차로 & 횡단보도 통합 관제 시스템 퍼블리싱 현황판 V2</h1>
+              <div class="ia-guideLink">
+                <button type="button" class="ia-top" onclick="$(window).scrollTop(0)">TOP</button>
+                <!-- <a href="index.html" class="is-current">현황판</a>
+              <a href="../_convention/index.html">퍼블리싱가이드</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="ia-content-body">
+            <!-- Total -->
+            <section class="ia-section">
+              <div class="ia-section-body">
+                <div class="ia-graph">
+                  <ul class="graph"></ul>
+                </div>
+              </div>
+            </section>
+            <!-- //Total -->
+
+            <!-- Note -->
+            <section class="ia-section ia-section-note">
+              <div class="ia-note">
+                <div class="row">
+                  <div class="col col-12">
+                    <div class="ia-box g-box-note">
+                      <div class="ia-box-header">
+                        <h4 class="ia-h4 marginT-0">Publish Note</h4>
+                      </div>
+                      <div class="ia-box-body">
+                        <ul class="ia-desc marginT-0">
+                          <li>유형 표시방법 - FP : Full Popup, MP : Massge Popup, SP : Select Popup, EP : Etc Popup,</li>
+                          <li>1차 진척관리 - 최초 완료표시 기준으로 날짜를 표시하고, 비고란에 전달사항이 있는경우 표시한다.</li>
+                          <li>
+                            2차 결함관리 - 신규/수정/삭제 이슈가 있는 경우 소스코드와 비고란에 동일한 주석문구를 표시한다. (주석표기 예시 - 181130
+                            홍길동 작업내용 수정)
+                          </li>
+                          <li>3차 최종완료 - 사이트 오픈후에 전체현황을 엑셀로 백업하여 기록을 남기고 비고란은 삭제한다. (최종완료 초기화 작업)</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- //Note -->
+
+            <!-- list -->
+            <section class="ia-section ia-section-ajax" data-file="ajax_ia_0" data-color="#ff898e">
+              <div class="ia-section-header">
+                <h2 class="ia-h2"><a href="#this" class="ui-accordion-toggle">공통 목록</a></h2>
+                <div class="ia-legend">
+                  <span class="item"><em>총 페이지 : </em><em class="legend-total">0</em>,</span>
+                  <span class="item c-done"><em>완료 : </em><em class="legend-complete">0</em>,</span>
+                  <span class="item"><em>진척률 : </em><em class="legend-process">0</em></span>
+                </div>
+              </div>
+              <div class="ia-section-body">
+                <div class="ia-tab-content type-thumb">
+                  <div class="ia-iframe-wrap">
+                    <div class="ia-iframe-list"></div>
+                  </div>
+                </div>
+                <div class="ia-tab-content type-list is-visible">
+                  <div class="tbl ia-tbl">
+                    <table>
+                      <caption>
+                        <strong>제목 정보</strong>
+                        <p>제목1, 제목2, 제목3 항목으로 구성됨</p>
+                      </caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">번호</th>
+                          <th scope="col" class="col-1depth">1Depth</th>
+                          <th scope="col" class="col-2depth">2Depth</th>
+                          <th scope="col" class="col-3depth">3Depth</th>
+                          <th scope="col" class="col-4depth">4Depth</th>
+                          <th scope="col" class="col-5depth">5Depth</th>
+                          <th scope="col" class="col-point">구분</th>
+                          <th scope="col">URL</th>
+                          <!-- <th scope="col" class="col-date">날짜</th> -->
+                          <th scope="col">상태</th>
+                          <!-- <th scope="col">담당자</th> -->
+                          <th scope="col">비고</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="col-num"><!--자동입력--></td>
+                          <td class="col-1depth">팝업</td>
+                          <td class="col-2depth">alert, confirm 팝업</td>
+                          <td class="col-3depth"></td>
+                          <td class="col-4depth"></td>
+                          <td class="col-5depth"></td>
+                          <td class="col-type" data-type="모달팝업"></td>
+                          <td class="col-url">html/common/default_popup.html</td>
+                          <!-- <td class="col-date"></td> -->
+                          <td class="col-complete" data-complete="완료"></td>
+                          <!-- <td class="col-worker"></td> -->
+                          <td class="col-memo"></td>
+                        </tr>
+                        <!-- <tr>
+                          <td class="col-num"></td>
+                          <td class="col-1depth">에러페이지</td>
+                          <td class="col-2depth"></td>
+                          <td class="col-3depth"></td>
+                          <td class="col-4depth"></td>
+                          <td class="col-5depth"></td>
+                          <td class="col-type" data-type=""></td>
+                          <td class="col-url">html/common/error.html</td>
+                          <td class="col-date"></td>
+                          <td class="col-complete" data-complete=""></td>
+                          <td class="col-worker"></td>
+                          <td class="col-memo"></td>
+                        </tr> -->
+                        <!-- <tr>
+                        <td class="col-num"></td>
+                        <td class="col-1depth">아이콘 모음</td>
+                        <td class="col-2depth"></td>
+                        <td class="col-3depth"></td>
+                        <td class="col-4depth"></td>
+                        <td class="col-5depth"></td>
+                        <td class="col-type" data-type=""></td>
+                        <td class="col-url">html/common/icon.html</td>
+                        <td class="col-date"></td>
+                        <td class="col-complete" data-complete=""></td>
+                        <td class="col-worker"></td>
+                        <td class="col-memo"></td>
+                      </tr> -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- //list -->
+
+            <!-- list -->
+            <section class="ia-section ia-section-ajax" data-file="ajax_ia_0" data-color="#ff898e">
+              <div class="ia-section-header">
+                <h2 class="ia-h2"><a href="#this" class="ui-accordion-toggle">페이지</a></h2>
+                <div class="ia-legend">
+                  <span class="item"><em>총 페이지 : </em><em class="legend-total">0</em>,</span>
+                  <span class="item c-done"><em>완료 : </em><em class="legend-complete">0</em>,</span>
+                  <span class="item"><em>진척률 : </em><em class="legend-process">0</em></span>
+                </div>
+              </div>
+              <div class="ia-section-body">
+                <div class="ia-tab-content type-thumb">
+                  <div class="ia-iframe-wrap">
+                    <div class="ia-iframe-list"></div>
+                  </div>
+                </div>
+                <div class="ia-tab-content type-list is-visible">
+                  <div class="tbl ia-tbl">
+                    <table>
+                      <caption>
+                        <strong>제목 정보</strong>
+                        <p>제목1, 제목2, 제목3 항목으로 구성됨</p>
+                      </caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">번호</th>
+                          <th scope="col" class="col-1depth">1Depth</th>
+                          <th scope="col" class="col-2depth">2Depth</th>
+                          <th scope="col" class="col-3depth">3Depth</th>
+                          <th scope="col" class="col-4depth">4Depth</th>
+                          <th scope="col" class="col-5depth">5Depth</th>
+                          <th scope="col" class="col-point">구분</th>
+                          <th scope="col">URL</th>
+                          <!-- <th scope="col" class="col-date">날짜</th> -->
+                          <th scope="col">상태</th>
+                          <!-- <th scope="col">담당자</th> -->
+                          <th scope="col">비고</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="col-num"><!--자동입력--></td>
+                          <td class="col-1depth">대시보드</td>
+                          <td class="col-2depth"></td>
+                          <td class="col-3depth"></td>
+                          <td class="col-4depth"></td>
+                          <td class="col-5depth"></td>
+                          <td class="col-type" data-type=""></td>
+                          <td class="col-url">html/dashboard.html</td>
+                          <!-- <td class="col-date"></td> -->
+                          <td class="col-complete" data-complete=""></td>
+                          <!-- <td class="col-worker"></td> -->
+                          <td class="col-memo"></td>
+                        </tr>
+                        <tr>
+                          <td class="col-num"><!--자동입력--></td>
+                          <td class="col-1depth">통계</td>
+                          <td class="col-2depth"></td>
+                          <td class="col-3depth"></td>
+                          <td class="col-4depth"></td>
+                          <td class="col-5depth"></td>
+                          <td class="col-type" data-type=""></td>
+                          <td class="col-url">/is/crossroads_stats_main.html</td>
+                          <!-- <td class="col-date"></td> -->
+                          <td class="col-complete" data-complete=""></td>
+                          <!-- <td class="col-worker"></td> -->
+                          <td class="col-memo"></td>
+                        </tr>
+                        <tr>
+                          <td class="col-num"><!--자동입력--></td>
+                          <td class="col-1depth">통계</td>
+                          <td class="col-2depth"></td>
+                          <td class="col-3depth"></td>
+                          <td class="col-4depth"></td>
+                          <td class="col-5depth"></td>
+                          <td class="col-type" data-type=""></td>
+                          <td class="col-url">/is/crossroads_stats_main.html</td>
+                          <!-- <td class="col-date"></td> -->
+                          <td class="col-complete" data-complete=""></td>
+                          <!-- <td class="col-worker"></td> -->
+                          <td class="col-memo"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- //list -->
+          </div>
+          <!-- //ia-content-body -->
+        </div>
+        <!-- //ia-content -->
+      </div>
+      <!-- //ia-container -->
+    </div>
+    <!-- //ia-wrap -->
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>공통 alert, confirm 팝업</title>
+    <link rel="stylesheet" href="/base/css/common.css" />
+
+    <!-- 퍼블리싱 확인용 style -->
+    <style>
+      .alert {
+        left: 20px;
+        top: 20px;
+        transform: translate(0, 0);
+      }
+
+      .confirm {
+        left: 480px;
+        top: 20px;
+        transform: translate(0, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- alert 팝업 메시지: active 클래스 추가 및 제거로 팝업 노출 or 숨김 처리  -->
+      <div class="custom-popup alert active">
+        <div class="custom-popup-header">
+          <em class="tit">알림</em>
+          <button type="button" class="btn-close">
+            <span class="screen-out">팝업 닫기</span>
+          </button>
+        </div>
+        <!-- //custom-popup-header -->
+        <div class="custom-popup-body">
+          <p>삭제 후는 복구할 수 없습니다.</p>
+        </div>
+        <!-- //custom-popup-body -->
+        <div class="custom-popup-btn-group">
+          <a href="#none" class="ui primary basic button rounded">확인</a>
+        </div>
+      </div>
+      <!-- //alert -->
+
+      <!-- confirm 팝업 메시지: active 클래스 추가 및 제거로 팝업 노출 or 숨김 처리 -->
+      <div class="custom-popup confirm active">
+        <div class="custom-popup-header">
+          <em class="tit">알림</em>
+          <button type="button" class="btn-close">
+            <span class="screen-out">팝업 닫기</span>
+          </button>
+        </div>
+        <!-- //custom-popup-header -->
+        <div class="custom-popup-body">
+          <p>
+            선택된 내용에 대해서 정말로 삭제 하시겠습니까?<br />
+            삭제 후는 복구할 수 없습니다.
+          </p>
+        </div>
+        <!-- //custom-popup-body -->
+        <div class="custom-popup-btn-group">
+          <a href="#none" class="ui primary basic button rounded">확인</a>
+          <a href="#none" class="ui secondary basic button rounded">취소</a>
+        </div>
+      </div>
+      <!-- //alert -->
+    </div>
+    <!-- //wrapper -->
+  </body>
+</html>

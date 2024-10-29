@@ -1,0 +1,186 @@
+/* ###############################
+    페이지
+################################## */
+/* 로그인 */
+.login {
+  position: relative;
+  height: inherit;
+  background: #1c2f42;
+}
+
+.login-box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 400px;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.login-box .logo {
+  margin: 0 auto;
+}
+
+.login-box-title {
+  text-align: center;
+  color: #fff;
+}
+
+.login-inputbox {
+  position: relative;
+  margin: 50px 0 30px;
+}
+
+.login-inputbox input {
+  width: 100%;
+  height: 36px;
+  margin-bottom: 15px;
+  padding-left: 71px;
+  line-height: 36px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #a8a8a8;
+}
+
+.login-inputbox .bind + .bind {
+  margin-top: 28px;
+}
+
+.login-inputbox .bind .loginbox-input {
+  position: relative;
+}
+
+.login-inputbox .bind .loginbox-input::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15px;
+  width: 36px;
+  height: 36px;
+}
+
+.login-inputbox .bind:first-child .loginbox-input::before {
+  background: url(/base/images/ic_person.png) no-repeat 0 0;
+}
+
+.login-inputbox .bind:last-child .loginbox-input::before {
+  background: url(/base/images/ic_lock.png) no-repeat 0 0;
+}
+
+.loginbox-input {
+  display: block;
+  border-bottom: 2px solid #7e7e7e;
+  -webkit-transition: border-color .3s;
+  transition: border-color .3s;
+}
+
+.loginbox-input.active {
+  border-bottom-color: #4d85ff;
+}
+
+.loginbox-input.warning {
+  border-bottom-color: #f0233c;
+}
+
+.loginbox-input.warning + .validation-warning {
+  visibility: visible;
+}
+
+.login .validation-warning {
+  visibility: hidden;
+  margin-top: 10px;
+  color: #f0233c;
+  font-size: 13px;
+}
+
+.login-help {
+  margin-top: 40px;
+}
+
+.login-help::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.login-help a {
+  position: relative;
+  float: left;
+  display: block;
+  width: 50%;
+  line-height: 17px;
+  color: #7e7e7e;
+  text-align: center;
+  font-weight: 800;
+}
+
+.login-help a:first-child::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 0;
+  width: 1px;
+  height: 13px;
+  background: #7e7e7e;
+}
+
+.login.demo .login-box {
+  width: 444px;
+  padding: 60px;
+  background: #0b395a;
+  border-radius: 30px;
+}
+
+.login.demo .bind {
+  margin-bottom: 10px;
+}
+
+.login.demo .loginbox-input2 {
+  position: relative;
+  width: 100%;
+  height: 42px;
+  background: #f4fbff;
+  border-radius: 5px;
+}
+
+.login.demo .loginbox-input2::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  width: 23px;
+  height: 23px;
+}
+
+.login.demo .loginbox-input2.id::before {
+  background: url(/base/images/ic_person_gray.png) no-repeat 0 0;
+  background-size: contain;
+}
+
+.login.demo .loginbox-input2.pwd::before {
+  background: url(/base/images/ic_lock_gray.png) no-repeat 0 0;
+  background-size: contain;
+}
+
+.login.demo .loginbox-input2 input {
+  width: 100%;
+  height: 42px;
+  padding-left: 48px;
+  line-height: 42px;
+}
+
+.login.demo .loginbox-input2.warning + .validation-warning {
+  visibility: visible;
+}
+
+.login.demo .validation-warning {
+  margin-top: 5px;
+}
+
+.login.demo .btn-block {
+  margin-top: 20px;
+  font-weight: 700;
+  padding-top: 17px;
+  padding-bottom: 17px;
+}
