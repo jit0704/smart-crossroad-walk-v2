@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>교차로 통계</title>
+    <script src="/base/js/lib/jquery-3.5.1.min.js"></script>
+    <script src="/base/js/lib/jquery-ui.min.js"></script>
+    <script src="/base/js/lib/semantic.min.js"></script>
+    <script src="/base/js/lib/jquery.modal.min.js"></script>
+    <!-- includeHTML.js : 퍼블리싱 확인용 include -->
+    <script src="/base/js/common/includeHTML.js"></script>
+    <script src="/base/js/common/ui.js"></script>
+    <link rel="stylesheet" href="/base/css/common.css" />
+    <link rel="stylesheet" href="/base/css/is.css" />
+    <link rel="stylesheet" href="/base/css/is_v2.css" />
+
+    <style>
+      /* 퍼블리싱 확인용 */
+      .dummy-img {
+        display: block;
+        width: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- GNB -->
+      <nav class="gnb" include-html="/base/html/common/gnb.html"></nav>
+
+      <main class="ly-container">
+        <div class="ly-sub bg-gray">
+          <div class="ly-setting">
+            <div class="ui breadcrumb">
+              <i class="home icon"></i>
+              <i class="right angle icon divider"></i>
+              <span class="section">교차로</span>
+              <i class="right angle icon divider"></i>
+              <span class="section">통계</span>
+              <i class="right angle icon divider"></i>
+              <div class="section">교차로 통계</div>
+            </div>
+            <!-- //breadcrumb -->
+            <div class="main-stats-container">
+              <section class="filter-grouop">
+                <div class="inner">
+                  <div class="selectbox-wrap primary label-none">
+                    <select>
+                      <option value="">구역</option>
+                      <option value="">아이템1</option>
+                      <option value="">아이템2</option>
+                      <option value="">아이템3</option>
+                    </select>
+                  </div>
+                  <!-- //selectbox-wrap -->
+                  <div class="selectbox-wrap primary label-none">
+                    <select>
+                      <option value="">지점</option>
+                      <option value="">아이템1</option>
+                      <option value="">아이템2</option>
+                      <option value="">아이템3</option>
+                    </select>
+                  </div>
+                  <!-- //selectbox-wrap -->
+                  <div class="selectbox-wrap primary label-none">
+                    <select>
+                      <option value="">시간별</option>
+                      <option value="">아이템1</option>
+                      <option value="">아이템2</option>
+                      <option value="">아이템3</option>
+                    </select>
+                  </div>
+                  <!-- //selectbox-wrap -->
+
+                  <!-- 달력 날짜 초기화는 맨 아래 스크립트 참고   -->
+                  <div class="date-group">
+                    <input type="date" class="input-date" data-start="date-start" />
+                    <i>~</i>
+                    <input type="date" class="input-date" data-end="date-end" />
+                  </div>
+                  <!-- //date-group -->
+
+                  <!-- 240128: md클래스 삭제 -->
+                  <div class="ui checkbox primary-chkbox c-bluesky">
+                    <input id="chk1" type="checkbox" />
+                    <label for="chk1">주말 제외</label>
+                  </div>
+                  <!-- //checkbox -->
+                  <div class="ui checkbox primary-chkbox c-bluesky">
+                    <input id="chk2" type="checkbox" />
+                    <label for="chk2">공휴일 제외</label>
+                  </div>
+                  <!-- //checkbox -->
+
+                  <button class="btn-data-search">검색</button>
+                </div>
+                <!-- //inner -->
+              </section>
+              <!-- //filter-grouop -->
+
+              <section class="summary-info-wrap">
+                <em class="tit">태릉입구역</em>
+                <article class="summary-info-display">
+                  <!-- 231119 타이틀 영역 삭제 -->
+                  <!-- <em class="tit">태릉입구역</em> -->
+                  <ul class="summary-info-item-wrap">
+                    <li>
+                      <em class="tit">총 교통량</em>
+                      <p class="clearly"><em>3,300,555</em> 대</p>
+                    </li>
+                    <li>
+                      <em class="tit">평균 속도</em>
+                      <p class="clearly"><em>25.23</em> km/h</p>
+                    </li>
+                    <li>
+                      <em class="tit">평균 제어지체</em>
+                      <p class="clearly"><em>25.23</em> km/h</p>
+                    </li>
+                    <li class="traffic-direction">
+                      <em class="tit">접근로 별 교통량</em>
+                      <div class="tbl-bind">
+                        <table>
+                          <!-- 231119 colgroup 수정 -->
+                          <colgroup>
+                            <col style="width: 170px" />
+                            <col />
+                          </colgroup>
+                          <tbody>
+                            <tr>
+                              <th><span>도로명도로명도로명도도로명도</span></th>
+                              <td><span>북동</span><em>220,555</em> 대</td>
+                            </tr>
+                            <tr>
+                              <th><span>가산디지털1로</span></th>
+                              <td><span>동</span><em>1,555</em> 대</td>
+                            </tr>
+                            <tr>
+                              <th><span>화랑로</span></th>
+                              <td><span>남</span><em>65</em> 대</td>
+                            </tr>
+                            <tr>
+                              <th><span>도로명도로명</span></th>
+                              <td><span>북</span><em>220,555</em> 대</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </li>
+                    <li>
+                      <em class="tit">차종 별 교통량</em>
+                      <div class="tbl-bind">
+                        <table>
+                          <!-- 231119 col width값 수정 -->
+                          <colgroup>
+                            <col style="width: 47%" />
+                            <col style="width: 53%" />
+                          </colgroup>
+                          <tbody>
+                            <tr>
+                              <th>소형</th>
+                              <td><em>555</em> 대</td>
+                            </tr>
+                            <tr>
+                              <th>트럭</th>
+                              <td><em>1,233</em> 대</td>
+                            </tr>
+                            <tr>
+                              <th>버스</th>
+                              <td><em>999,986</em> 대</td>
+                            </tr>
+                            <tr>
+                              <th>트레일러</th>
+                              <td><em>105</em> 대</td>
+                            </tr>
+                            <tr>
+                              <th>이륜차</th>
+                              <td><em>595</em> 대</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </li>
+                    <li class="traffic-direction">
+                      <em class="tit">접근로 별 평균포화도</em>
+                      <div class="tbl-bind">
+                        <table>
+                          <!-- 231119 colgroup 수정 -->
+                          <colgroup>
+                            <col style="width: 170px" />
+                            <col />
+                          </colgroup>
+                          <tbody>
+                            <tr>
+                              <th><span>도로명도로명도로명도도로명도</span></th>
+                              <td><span>북동</span><em>50</em>%</td>
+                            </tr>
+                            <tr>
+                              <th><span>가산디지털1로</span></th>
+                              <td><span>동</span><em>50</em>%</td>
+                            </tr>
+                            <tr>
+                              <th><span>화랑로</span></th>
+                              <td><span>남</span><em>50</em>%</td>
+                            </tr>
+                            <tr>
+                              <th><span>도로명도로명</span></th>
+                              <td><span>북</span><em>50</em>%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </li>
+                    <li>
+                      <em class="tit">서비스 수준</em>
+                      <div class="tbl-bind">
+                        <table>
+                          <!-- 231119 col width값 수정 -->
+                          <colgroup>
+                            <col style="width: 50%" />
+                            <col style="width: 50%" />
+                          </colgroup>
+                          <tbody>
+                            <tr>
+                              <td><em>A</em>(0)</td>
+                              <td><em>E</em>(4)</td>
+                            </tr>
+                            <tr>
+                              <td><em>B</em>(0)</td>
+                              <td><em>F</em>(4)</td>
+                            </tr>
+                            <tr>
+                              <td><em>C</em>(0)</td>
+                              <td><em>FF</em>(4)</td>
+                            </tr>
+                            <tr>
+                              <td><em>D</em>(0)</td>
+                              <td><em>FFF</em>(4)</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </li>
+                  </ul>
+                  <!-- //summary-info-item-wrap -->
+                </article>
+                <!-- //summary-info-display -->
+                <article class="summary-info-chart">
+                  <section class="chart1">
+                    <div class="chart-container">
+                      <!-- 차트 크기 1041(px) x 410(px) -->
+                      <img
+                        src="https://www.dummyimage.com/1041x410/f9f9f9/000.png&amp;text=chart"
+                        alt="퍼블리싱 확인용 더미 이미지"
+                        class="dummy-img"
+                      />
+                    </div>
+                    <!-- //chart-container -->
+                    <aside>
+                      <div class="selectbox-wrap xs">
+                        <select>
+                          <option value="">도로명</option>
+                          <option value="">도로명2</option>
+                          <option value="">도로명3</option>
+                        </select>
+                      </div>
+                      <!-- //selectbox-wrap -->
+                      <div class="road-sort">
+                        <button type="button" class="active">차로 별 통행량</button>
+                        <button type="button">차로 별 점유율</button>
+                        <button type="button">차로 별 대기행렬</button>
+                      </div>
+                      <!-- //road-sort -->
+                    </aside>
+                  </section>
+                  <!-- //chart1 -->
+
+                  <section class="chart2">
+                    <header class="tit-header">
+                      <em>접근로 별 평균 제어지체</em>
+                      <!-- <div class="selectbox-wrap xs">
+                        <select>
+                          <option value="">도로명</option>
+                          <option value="">도로명2</option>
+                          <option value="">도로명3</option>
+                        </select>
+                      </div> -->
+                      <!-- //selectbox-wrap -->
+                    </header>
+                    <div class="chart-container">
+                      <!-- 230920 div 추가 -->
+                      <div class="chart-inner">
+                        <!-- 차트 크기 387(px) x 371(px) -->
+                        <img
+                          src="https://www.dummyimage.com/387x371/f9f9f9/000.png&amp;text=chart"
+                          alt="퍼블리싱 확인용 더미 이미지"
+                          class="dummy-img"
+                        />
+                      </div>
+                      <!-- //chart-inner -->
+                    </div>
+                    <!-- //chart-container -->
+                  </section>
+                  <!-- //chart2 -->
+                </article>
+                <!-- //summary-info-chart -->
+              </section>
+              <!-- //summary-info-wrap -->
+            </div>
+            <!-- //main-stats-container -->
+          </div>
+          <!-- //ly-setting -->
+        </div>
+        <!-- //ly-sub -->
+      </main>
+      <!-- //ly-container -->
+
+      <footer class="ly-copyright c-white" include-html="/base/html/common/footer.html"></footer>
+    </div>
+    <!-- //wrapper -->
+
+    <script>
+      // 달력 날짜 초기화
+      function dateInit() {
+        return new Date().toISOString().substring(0, 10);
+      }
+      $('[data-start="date-start"]').attr('value', dateInit());
+      $('[data-end="date-end"]').attr('value', dateInit());
+    </script>
+  </body>
+</html>

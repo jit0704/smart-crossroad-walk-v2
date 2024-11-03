@@ -1,0 +1,30 @@
+@charset "UTF-8";
+/* 교차로 통계 화면 */
+.main-stats-container .summary-info-item-wrap > li.traffic-direction {
+  flex: 0 0 37.8rem;
+}
+.main-stats-container .summary-info-item-wrap > li:nth-child(5) {
+  flex: 0 0 22.6rem;
+}
+.main-stats-container .summary-info-item-wrap > li:nth-child(6) {
+  flex: 0 0 33.2rem;
+}
+.main-stats-container .summary-info-item-wrap > li:nth-child(7) {
+  flex: 0 0 18rem;
+}
+.main-stats-container .summary-info-chart > section {
+  height: 460px;
+  padding-block: 25px;
+}
+.main-stats-container .summary-info-chart .chart1 .chart-container {
+  width: 104.1rem;
+  height: 41rem;
+  margin-top: 0;
+}
+.main-stats-container .summary-info-chart .chart2 .chart-container {
+  height: 100%;
+}
+.main-stats-container .summary-info-chart .chart2 .chart-container .chart-inner {
+  width: 38.7rem;
+  height: 37.1rem;
+}

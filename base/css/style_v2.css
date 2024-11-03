@@ -1,0 +1,232 @@
+@charset "UTF-8";
+/* 레이아웃 */
+.ly-sub.type2 {
+  padding: 5rem 4.7rem 4.4rem;
+}
+
+/* 교차로 대시보드 */
+.dashboard-reform-body .los-top-accidents-container {
+  padding-block: 2.1rem;
+}
+.dashboard-reform-body .accidents-container {
+  height: 43.8rem;
+}
+.dashboard-reform-body .accidents-current {
+  padding-block: 2.1rem;
+}
+.dashboard-reform-body .dashboard-noti-list li .sign-sudden10 {
+  color: #8db5d1;
+  background: #ecf7ff;
+}
+.dashboard-reform-body .dashboard-noti-list li .sign-sudden11 {
+  color: #b13c3c;
+  background: #ffdada;
+}
+.dashboard-reform-body .hindrance-container .dashboard-noti-list {
+  margin-block: 2rem;
+}
+.dashboard-reform-body .congested-ranking-container .gap-tbl {
+  height: 21.4rem;
+  padding: 1.6rem;
+}
+.dashboard-reform-body .traffic-increase-container .ranking-tbl {
+  height: 19.9rem;
+  padding-block: 1.6rem;
+}
+.dashboard-reform-body .traffic-increase-container .ranking-tbl table {
+  height: 100%;
+}
+.dashboard-reform-body .traffic-increase-container .ranking-tbl table tbody td {
+  height: auto;
+}
+.dashboard-reform-body .traffic-increase-container .ranking-chart {
+  background: #fff;
+  padding: 1.6rem 1.4rem;
+}
+.dashboard-reform-body .traffic-increase-container .ranking-chart .chart-wrap {
+  width: 35rem;
+  height: 16.7rem;
+}
+.dashboard-reform-body .crossroad-control-delay-container {
+  background: #f8f8f8 !important;
+}
+.point-list-container2 {
+  overflow-y: auto;
+  height: 25.6rem;
+  padding: 1.6rem 1.5rem;
+  background: #fff;
+}
+.point-list-container2::-webkit-scrollbar {
+  width: 0.4rem;
+}
+.point-list-container2 li {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  gap: 0 1.1rem;
+}
+.point-list-container2 li + li {
+  margin-top: 1.16rem;
+}
+.point-list-container2 li em {
+  width: 11.1rem;
+  font-size: 1.2rem;
+  color: #727272;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+.point-list-container2 li span {
+  flex: 1;
+  position: relative;
+  height: 1rem;
+  border-radius: 10px;
+  background: #f4f4f4;
+}
+.point-list-container2 li span i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 10px;
+}
+.point-list-container2 li span.c-lime i {
+  background: #00de73;
+}
+.point-list-container2 li span.c-darkblue i {
+  background: #001db7;
+}
+.point-list-container2 li span.c-lightskyblue i {
+  background: #b5e3ff;
+}
+.point-list-container2 li span.c-aqua i {
+  background: #00e9db;
+}
+
+.dashboard-reform-body > .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 1rem 0;
+}
+.dashboard-reform-body > .right > section {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 1rem;
+  background: #fff;
+}
+.dashboard-reform-body .traffic-status-inner {
+  height: 48rem;
+  padding: 1.6rem 2.5rem;
+}
+.dashboard-reform-body .traffic-status-inner .chart-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+.dashboard-reform-body .traffic-status-inner .chart-label .left {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  gap: 0 1rem;
+}
+.dashboard-reform-body .traffic-status-inner .chart-label .left em {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  gap: 0 0.4rem;
+  line-height: 1.8rem;
+  font-size: 1.4rem;
+  color: #727272;
+}
+.dashboard-reform-body .traffic-status-inner .chart-label .left em::before {
+  content: "";
+  width: 1.225rem;
+  height: 1.225rem;
+  background: #03a0fc;
+}
+.dashboard-reform-body .traffic-status-inner .chart-label i {
+  font-size: 1.4rem;
+  color: #727272;
+}
+.dashboard-reform-body .traffic-status-inner .chart-wrap {
+  width: 58.6rem;
+  height: 39.8rem;
+  margin: 3.17rem auto 0;
+}
+.dashboard-reform-body .vms-display {
+  flex: 1;
+  margin-top: 1rem;
+  text-align: center;
+}
+.dashboard-reform-body .vms-display .tit {
+  display: block;
+  line-height: 2.1rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #666;
+}
+.dashboard-reform-body .vms-display-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 0 3.4rem;
+  height: 25.7rem;
+  padding: 2.5rem;
+}
+.dashboard-reform-body .vms-display .vms-status-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 0.5rem 0;
+  height: 16.1rem;
+  margin-top: 1rem;
+  border: 1rem solid #2e2e2e;
+  background: #000;
+  color: #fff;
+}
+.dashboard-reform-body .vms-display .vms-status-display p {
+  margin: 0;
+  line-height: 2.6rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+.dashboard-reform-body .vms-display .vms-status-display p .emp1 {
+  color: #70ff00;
+}
+.dashboard-reform-body .vms-display .vms-status-display p .emp2 {
+  color: #fff600;
+}
+.dashboard-reform-body .vms-display .vms-status-display p i {
+  font-size: 1.5rem;
+  vertical-align: top;
+}
+
+@media screen and (max-height: 925px) {
+  /* 대시보드 */
+  .point-list-container2 {
+    height: 21.9rem;
+  }
+  .dashboard-reform-body .vms-display-container {
+    height: 22.1rem;
+    padding: 1.5rem;
+  }
+  .dashboard-reform-body .vms-display {
+    margin-top: 0;
+  }
+}

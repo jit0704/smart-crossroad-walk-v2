@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>교차로 대시보드 A</title>
+    <script src="/base/js/lib/jquery-3.5.1.min.js"></script>
+    <script src="/base/js/lib/jquery-ui.min.js"></script>
+    <script src="/base/js/lib/semantic.min.js"></script>
+    <script src="/base/js/lib/jquery.modal.min.js"></script>
+    <!-- includeHTML.js : 퍼블리싱 확인용 include -->
+    <script src="/base/js/common/includeHTML.js"></script>
+    <script src="/base/js/common/ui.js"></script>
+    <link rel="stylesheet" href="/base/css/common.css" />
+    <link rel="stylesheet" href="/base/css/is.css" />
+
+    <style>
+      /* 퍼블리싱 확인용 */
+      .dummy-img {
+        display: block;
+        width: auto;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- GNB -->
+      <nav class="gnb" include-html="/base/html/common/gnb.html"></nav>
+
+      <main class="ly-container">
+        <div class="ly-sub type2 bg-gray">
+          <div class="dashboard-reform">
+            <section class="dashboard-reform-body">
+              <article class="left">
+                <section class="los-top-accidents-container">
+                  <em class="tit">LOS 등급</em>
+                  <div class="lev-bind">
+                    <div class="lev-left">
+                      <em>태릉입구역</em>
+                      <i>기존등급 : <b>A</b></i>
+                    </div>
+                    <!-- //lev-left -->
+                    <em class="grade">F</em>
+                  </div>
+                  <!-- //lev-bind -->
+                </section>
+                <!-- //los-top-accidents-container -->
+
+                <section class="accidents-container">
+                  <div class="dashboard-reform-tit-wrap">
+                    <em>돌발 현황</em>
+                  </div>
+                  <!-- //dashboard-reform-tit-wrap -->
+                  <div class="accidents-current">
+                    <div class="chart-bind">
+                      <div class="chart-wrap">
+                        <!-- 240201: 차트 사이즈 변경 : 120(px) X 120(px) -->
+                        <img
+                          src="https://www.dummyimage.com/120x120/ddd/000.png&amp;text=chart"
+                          alt="퍼블리싱 확인용 더미 이미지"
+                          class="dummy-img"
+                        />
+                      </div>
+                      <!-- //chart-wrap -->
+                      <ul class="accidents-current-legend">
+                        <li>
+                          <span class="tit sudden9">꼬리물기</span>
+                          <div class="right">
+                            <span><em>9,999</em>건</span>
+                            <span><em>62</em>%</span>
+                          </div>
+                        </li>
+                        <li>
+                          <span class="tit sudden6">정지선 위반</span>
+                          <div class="right">
+                            <span><em>8,888</em>건</span>
+                            <span><em>62</em>%</span>
+                          </div>
+                        </li>
+                        <li>
+                          <span class="tit sudden7">지정차로 위반</span>
+                          <div class="right">
+                            <span><em>7,777</em>건</span>
+                            <span><em>62</em>%</span>
+                          </div>
+                        </li>
+                        <li>
+                          <span class="tit sudden4">무단횡단</span>
+                          <div class="right">
+                            <span><em>999</em>건</span>
+                            <span><em>36</em>%</span>
+                          </div>
+                        </li>
+                        <li>
+                          <span class="tit sudden2">정지</span>
+                          <div class="right">
+                            <span><em>999</em>건</span>
+                            <span><em>23</em>%</span>
+                          </div>
+                        </li>
+                        <li>
+                          <span class="tit sudden3">역주행</span>
+                          <div class="right">
+                            <span><em>501</em>건</span>
+                            <span><em>62</em>%</span>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- //event-current-legend -->
+                    </div>
+                    <!-- //chart-bind -->
+                    <ul class="dashboard-noti-list">
+                      <!-- 240112 li 수정 -->
+                      <li>
+                        <em class="sign-sudden9">꼬리물기</em>
+                        <span class="txt">홈플러스익스프레스천안성정점앞앞앞</span>
+                        <span class="pass">2시간 전</span>
+                      </li>
+                      <li>
+                        <em class="sign-sudden6">정지선위반</em>
+                        <span class="txt">천안브라운스톤아파트114동앞</span>
+                        <span class="pass">2시간 전</span>
+                      </li>
+                      <li>
+                        <em class="sign-sudden10">지정차로위반</em>
+                        <span class="txt">천안브라운스톤아파트114동앞</span>
+                        <span class="pass">2시간 전</span>
+                      </li>
+                      <li>
+                        <em class="sign-sudden11">역주행</em>
+                        <span class="txt">천안브라운스톤아파트114동앞</span>
+                        <span class="pass">2시간 전</span>
+                      </li>
+                    </ul>
+                    <!-- //dashboard-noti-list -->
+                  </div>
+                  <!-- //accidents-current -->
+                </section>
+                <!-- //accidents-container -->
+
+                <section class="hindrance-container">
+                  <div class="dashboard-reform-tit-wrap">
+                    <em>장애 현황</em>
+                  </div>
+                  <!-- //dashboard-reform-tit-wrap -->
+                  <ul class="dashboard-noti-list">
+                    <!-- 240112 li 수정 -->
+                    <li>
+                      <i class="ico-hindrance1"></i>
+                      <p class="txt"><em>[카메라이상]</em>태릉입구역 교차로 카메라 이상 상태</p>
+                      <span class="pass">2시간 전</span>
+                    </li>
+                    <li>
+                      <i class="ico-hindrance2"></i>
+                      <p class="txt"><em>[분석서버 이상]</em>태릉입구역 교차로 카메라</p>
+                      <span class="pass">2시간 전</span>
+                    </li>
+                    <li>
+                      <i class="ico-hindrance3"></i>
+                      <p class="txt"><em>[카메라이상]</em>태릉입구역 교차로 카메라 이상</p>
+                      <span class="pass">2시간 전</span>
+                    </li>
+                    <li>
+                      <i class="ico-hindrance4"></i>
+                      <p class="txt"><em>[레이더 이상]</em>태릉입구역 교차로 상태</p>
+                      <span class="pass">2시간 전</span>
+                    </li>
+                    <li>
+                      <i class="ico-hindrance2"></i>
+                      <p class="txt"><em>[분석서버 이상]</em>태릉입구역 교차로 카메라</p>
+                      <span class="pass">2시간 전</span>
+                    </li>
+                  </ul>
+                  <!-- //dashboard-noti-list -->
+                </section>
+                <!-- //hindrance-container -->
+              </article>
+              <!-- //left -->
+
+              <article class="center">
+                <section class="congested-ranking-container">
+                  <div class="dashboard-reform-tit-wrap type3">
+                    <em>접근로 정체 순위</em>
+                    <time>2023. 08. 01 11:00~12:00</time>
+                  </div>
+                  <!-- //dashboard-reform-tit-wrap -->
+                  <div class="gap-tbl">
+                    <table>
+                      <!-- 231212 col 너비 수정 -->
+                      <colgroup>
+                        <col style="width: 40px" />
+                        <col style="width: 140px" />
+                        <col style="width: 150px" />
+                        <col style="width: 150px" />
+                        <col style="width: 70px" />
+                        <col style="width: 70px" />
+                        <col />
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th><span>순위</span></th>
+                          <th><span>지점명</span></th>
+                          <th><span>도로 명</span></th>
+                          <th><span>도로 방향 명</span></th>
+                          <th><span>도로방향</span></th>
+                          <th><span>평균속도</span></th>
+                          <th><span>교통량</span></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <i>1</i>
+                          </td>
+                          <td>
+                            <span class="txt">불당아이파크아파트10아파트10</span>
+                          </td>
+                          <td>
+                            <span class="txt">불당아이파크아파트10아파트10</span>
+                          </td>
+                          <td>
+                            <span class="txt">불당아이파크아파트10아파트10</span>
+                          </td>
+                          <td>북</td>
+                          <td>21 km/h</td>
+                          <td>9,930,589</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <i>2</i>
+                          </td>
+                          <td>
+                            <span class="txt">불당아이파크아파트10</span>
+                          </td>
+                          <td>
+                            <span class="txt">불당아이파크아파트10</span>
+                          </td>
+                          <td>
+                            <span class="txt">불당아이파크아파트10</span>
+                          </td>
+                          <td>북</td>
+                          <td>21 km/h</td>
+                          <td>9,930,589</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <i>3</i>
+                          </td>
+                          <td>
+                            <span class="txt">가산가산디지털 1로</span>
+                          </td>
+                          <td>
+                            <span class="txt">가산가산디지털 1로</span>
+                          </td>
+                          <td>
+                            <span class="txt">가산가산디지털 1로</span>
+                          </td>
+                          <td>북</td>
+                          <td>21 km/h</td>
+                          <td>9,930,589</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <i>4</i>
+                          </td>
+                          <td>
+                            <span class="txt">태릉입구역</span>
+                          </td>
+                          <td>
+                            <span class="txt">태릉입구역</span>
+                          </td>
+                          <td>
+                            <span class="txt">태릉입구역</span>
+                          </td>
+                          <td>북</td>
+                          <td>21 km/h</td>
+                          <td>9,930,589</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <i>5</i>
+                          </td>
+                          <td>
+                            <span class="txt">태릉입구역</span>
+                          </td>
+                          <td>
+                            <span class="txt">태릉입구역</span>
+                          </td>
+                          <td>
+                            <span class="txt">태릉입구역</span>
+                          </td>
+                          <td>북</td>
+                          <td>21 km/h</td>
+                          <td>9,930,589</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- //gap-tbl -->
+                </section>
+                <!-- //congested-ranking-container -->
+
+                <section class="traffic-increase-container">
+                  <div class="traffic-increase-wrap">
+                    <div class="dashboard-reform-tit-wrap type2">
+                      <em>전일 대비 교통량 증감률 TOP 5</em>
+                      <time>2023. 08. 01 11:00~12:00</time>
+                    </div>
+                    <!-- //dashboard-reform-tit-wrap -->
+                    <div class="ranking-tbl">
+                      <table>
+                        <colgroup>
+                          <col style="width: 2.4rem" />
+                          <col style="width: 15.75rem" />
+                          <col />
+                          <col style="width: 3.3rem" />
+                          <col style="width: 1.8rem" />
+                        </colgroup>
+                        <tbody>
+                          <tr class="increase">
+                            <td>
+                              <i>1</i>
+                            </td>
+                            <td>
+                              <span class="txt">태릉입구역 사거리 사거리</span>
+                            </td>
+                            <td class="fluctuate"><i class="num">9,300</i>대 증가</td>
+                            <td class="fluctuate"><i class="num">40</i>%</td>
+                            <td class="fluctuate">▲</td>
+                          </tr>
+                          <tr class="increase">
+                            <td>
+                              <i>2</i>
+                            </td>
+                            <td>
+                              <span class="txt">태릉입구역</span>
+                            </td>
+                            <td class="fluctuate"><i class="num">9,300</i>대 증가</td>
+                            <td class="fluctuate"><i class="num">40</i>%</td>
+                            <td class="fluctuate">▲</td>
+                          </tr>
+                          <!-- 231211 stationarily 클래스 추가 -->
+                          <tr class="stationarily">
+                            <td>
+                              <i>3</i>
+                            </td>
+                            <td>
+                              <span class="txt">태릉입구역</span>
+                            </td>
+                            <td class="fluctuate">변화 없음</td>
+                            <td class="fluctuate"><i class="num">0</i>%</td>
+                            <td class="fluctuate"></td>
+                          </tr>
+                          <tr class="increase">
+                            <td>
+                              <i>4</i>
+                            </td>
+                            <td>
+                              <span class="txt">태릉입구역</span>
+                            </td>
+                            <td class="fluctuate"><i class="num">9,300</i>대 증가</td>
+                            <td class="fluctuate"><i class="num">40</i>%</td>
+                            <td class="fluctuate">▲</td>
+                          </tr>
+                          <tr class="decrease">
+                            <td>
+                              <i>5</i>
+                            </td>
+                            <td>
+                              <span class="txt">태릉입구역</span>
+                            </td>
+                            <td class="fluctuate"><i class="num">7,900</i>대 감소</td>
+                            <td class="fluctuate"><i class="num">35</i>%</td>
+                            <td class="fluctuate">▼</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- //ranking-tbl -->
+                  </div>
+                  <!-- //traffic-increase-wrap -->
+                  <div class="traffic-increase-wrap">
+                    <div class="dashboard-reform-tit-wrap type2">
+                      <em>교통량 TOP 5</em>
+                      <time>2023. 08. 01 11:00~12:00</time>
+                    </div>
+                    <!-- //dashboard-reform-tit-wrap -->
+                    <div class="ranking-chart">
+                      <div class="chart-wrap">
+                        <!-- 차트 사이즈 : 350(px) X 167(px) -->
+                        <img
+                          src="https://www.dummyimage.com/350x167/ddd/000.png&amp;text=chart"
+                          alt="퍼블리싱 확인용 더미 이미지"
+                          class="dummy-img"
+                        />
+                      </div>
+                    </div>
+                    <!-- //ranking-chart -->
+                  </div>
+                  <!-- //traffic-increase-wrap -->
+                </section>
+                <!-- //traffic-increase-container -->
+
+                <section class="crossroad-control-delay-container">
+                  <div class="dashboard-reform-tit-wrap type3">
+                    <em>교차로 별 제어지체</em>
+                    <time>2023. 08. 01 11:00~12:00</time>
+                  </div>
+                  <!-- //dashboard-reform-tit-wrap -->
+                  <div class="point-list-container2">
+                    <ul>
+                      <li>
+                        <em>가산디지털단지 역</em>
+                        <span class="c-lime">
+                          <i style="width: 20%"></i>
+                        </span>
+                      </li>
+                      <li>
+                        <em>구로디지털단지 역</em>
+                        <span class="c-darkblue">
+                          <i style="width: 30%"></i>
+                        </span>
+                      </li>
+                      <li>
+                        <em>가재마을 9,10단지 앞</em>
+                        <span class="c-lightskyblue">
+                          <i style="width: 40%"></i>
+                        </span>
+                      </li>
+                      <li>
+                        <em>내용이 들어갑니다. 내용이 들어갑니다.</em>
+                        <span class="c-lime">
+                          <i style="width: 50%"></i>
+                        </span>
+                      </li>
+                      <li>
+                        <em>가산디지털단지 역</em>
+                        <span class="c-lime">
+                          <i style="width: 60%"></i>
+                        </span>
+                      </li>
+                      <li>
+                        <em>구로디지털단지 역</em>
+                        <span class="c-aqua">
+                          <i style="width: 70%"></i>
+                        </span>
+                      </li>
+                      <li>
+                        <em>가재마을 9,10단지 앞</em>
+                        <span class="c-lightskyblue">
+                          <i style="width: 80%"></i>
+                        </span>
+                      </li>
+                      <li>
+                        <em>내용이 들어갑니다. 내용이 들어갑니다.</em>
+                        <span class="c-lime">
+                          <i style="width: 90%"></i>
+                        </span>
+                      </li>
+                      <li>
+                        <em>가재마을 9,10단지 앞</em>
+                        <span class="c-lime">
+                          <i style="width: 100%"></i>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </section>
+                <!-- //crossroad-control-delay-container -->
+              </article>
+              <!-- //center -->
+
+              <article class="right">
+                <section class="traffic-status-container">
+                  <div class="dashboard-reform-tit-wrap type3">
+                    <em>주요도로 별 소통현황</em>
+                    <time>2023. 08. 01 11:00~12:00</time>
+                  </div>
+                  <!-- //dashboard-reform-tit-wrap -->
+                  <div class="traffic-status-inner">
+                    <div class="chart-label">
+                      <span class="left">
+                        <em>총교통량</em>
+                        <em>평균 속도</em>
+                      </span>
+                      <i>(단위 : km/h, 대수)</i>
+                    </div>
+                    <!-- //chart-label -->
+                    <div class="chart-wrap">
+                      <!-- 차트 사이즈 : 586(px) X 398(px) -->
+                      <img src="https://www.dummyimage.com/586x398/ddd/000.png&amp;text=chart" alt="퍼블리싱 확인용 더미 이미지" class="dummy-img" />
+                    </div>
+                  </div>
+                  <!-- //point-list-container -->
+                </section>
+                <!-- //traffic-status-container -->
+
+                <section class="vms-status-container">
+                  <div class="dashboard-reform-tit-wrap type3">
+                    <em>VMS 표출 현황</em>
+                    <time>2023. 08. 01 11:00~12:00</time>
+                  </div>
+                  <!-- //dashboard-reform-tit-wrap -->
+                  <div class="vms-display-container">
+                    <div class="vms-display">
+                      <em class="tit">VMS 1번 (VMS 명칭)</em>
+                      <div class="vms-status-display">
+                        <p><em class="emp1">전방</em> 비봉 IC <i>▶</i> 군포 IC</p>
+                        <p>서해안선 <em class="emp2">서행</em></p>
+                        <p>국도 <em class="emp1">소통원활</em></p>
+                      </div>
+                    </div>
+                    <!-- //vms-display -->
+                    <div class="vms-display">
+                      <em class="tit">VMS 2번 (VMS 명칭)</em>
+                      <div class="vms-status-display">
+                        <p><em class="emp1">전방</em> 비봉 IC <i>▶</i> 군포 IC</p>
+                        <p>서해안선 <em class="emp2">서행</em></p>
+                        <p>국도 <em class="emp1">소통원활</em></p>
+                      </div>
+                    </div>
+                    <!-- //vms-display -->
+                  </div>
+                  <!-- //vms-display-container -->
+                </section>
+                <!-- //vms-status-container -->
+              </article>
+              <!-- //right -->
+            </section>
+            <!-- //dashboard-reform-body -->
+          </div>
+          <!-- //dashboard-reform -->
+        </div>
+        <!-- //ly-sub -->
+      </main>
+      <!-- //ly-container -->
+
+      <footer class="ly-copyright c-white" include-html="/base/html/common/footer.html"></footer>
+    </div>
+    <!-- //wrapper -->
+  </body>
+</html>
