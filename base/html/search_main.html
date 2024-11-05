@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>지도</title>
+    <script src="/base/js/lib/jquery-3.5.1.min.js"></script>
+    <script src="/base/js/lib/jquery-ui.min.js"></script>
+    <script src="/base/js/lib/semantic.min.js"></script>
+    <script src="/base/js/lib/jquery.modal.min.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="http://map.ngii.go.kr/emap/js/map/OpenLayers-6.4.3.js"></script>
+    <script src="http://map.ngii.go.kr/nps/common/lib/proj4js/proj4.js"></script>
+    <script src="http://map.ngii.go.kr/openapi/wmts_ngiiMap_v6.4.3.js?apikey=04trYP9_xwLAfALjwZ-B8g"></script>
+    <!-- includeHTML.js : 퍼블리싱 확인용 include -->
+    <script src="/base/js/common/includeHTML.js"></script>
+    <script src="/base/js/common/ui.js"></script>
+    <link rel="stylesheet" href="http://map.ngii.go.kr/emap/css/map/OpenLayers-6.4.3.css" />
+    <link rel="stylesheet" href="/base/css/common.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- GNB -->
+      <nav class="gnb" include-html="/base/html/common/gnb.html"></nav>
+
+      <!-- 검색 결과 노출시 is-result 클래스명 추가해주세요. -->
+      <div class="search-view-container is-result">
+        <button type="button" class="btn-search-view-close">
+          <span class="screen-out">검색창 닫기</span>
+        </button>
+        <!-- //btn-search-view-close -->
+
+        <section class="search-view-header">
+          <h2>지점 검색</h2>
+          <div class="control-box">
+            <span class="key-word-input">
+              <input type="text" placeholder="검색어로 검색하기 (ex.강릉 스마트교차로)" />
+            </span>
+            <!-- //key-word-input -->
+            <div class="bind-choice">
+              <!-- 230822 js-custom-wrap-location 클래스명 추가 -->
+              <div class="btn-custom-wrap js-custom-wrap-location">
+                <button type="button" class="btn-custom" data-name="location">지역</button>
+                <div class="depth1">
+                  <button type="button" data-all="전체">전체</button>
+                  <!-- data-target 값과 depth2안에 자식요소들의 id값이 일치해야 합니다.  -->
+                  <button type="button" data-target="seoul">서울</button>
+                  <button type="button" data-target="gyeonggi">경기</button>
+                  <button type="button" data-target="gangwon">강원</button>
+                  <button type="button" data-target="">인천</button>
+                  <button type="button" data-target="">경남</button>
+                </div>
+                <!-- //depth1 -->
+                <div class="depth2">
+                  <span id="seoul" class="area">
+                    <button type="button">서울전체</button>
+                    <button type="button">강남구</button>
+                    <button type="button">서초구</button>
+                    <button type="button">동작구</button>
+                    <button type="button">강서구</button>
+                    <button type="button">구로구</button>
+                    <button type="button">송파구</button>
+                  </span>
+                  <span id="gyeonggi" class="area">
+                    <button type="button">경기전체</button>
+                  </span>
+                  <span id="gangwon" class="area">
+                    <button type="button">강원전체</button>
+                  </span>
+                </div>
+                <!-- //depth2 -->
+              </div>
+              <!-- //btn-custom-wrap -->
+              <!-- 230822 js-custom-wrap-system 클래스명 추가 -->
+              <div class="btn-custom-wrap js-custom-wrap-system">
+                <button type="button" class="btn-custom" data-name="system">시스템</button>
+                <!-- 230822 메뉴 수정 -->
+                <div class="chk-box">
+                  <button type="button">전체 선택</button>
+                  <button type="button">스마트 교차로</button>
+                  <button type="button">스마트 횡단보도</button>
+                </div>
+                <!-- //chk-box -->
+              </div>
+              <!-- //btn-custom-wrap -->
+            </div>
+            <!-- //bind -->
+          </div>
+          <!-- //control-box -->
+
+          <button type="button" class="btn-final-search">검색</button>
+
+          <div class="result-wrap">
+            <span class="txt">검색결과 5건</span>
+            <button type="button" class="btn-choice-reset">선택 초기화</button>
+          </div>
+          <!-- //result-wrap -->
+        </section>
+        <!-- //search-view-header -->
+
+        <section class="search-view-body">
+          <ul class="result-list">
+            <li>
+              <div class="branch-name">
+                <i class="ico-c"><span class="screen-out">교차로</span></i>
+                <em>하탑사거리</em>
+              </div>
+              <div class="right">
+                <button type="button" class="ico-point"><span class="screen-out">지점</span></button>
+                <button type="button" class="ico-look"><span class="screen-out">지점 상세</span></button>
+              </div>
+            </li>
+            <li>
+              <div class="branch-name">
+                <i class="ico-u"><span class="screen-out">돌발</span></i>
+                <em>이매２동 행정복지센터</em>
+              </div>
+              <div class="right">
+                <button type="button" class="ico-point"><span class="screen-out">지점</span></button>
+                <button type="button" class="ico-look"><span class="screen-out">지점 상세</span></button>
+              </div>
+            </li>
+            <li>
+              <div class="branch-name">
+                <i class="ico-v"><span class="screen-out">vms</span></i>
+                <em>유천마트</em>
+              </div>
+              <div class="right">
+                <button type="button" class="ico-point"><span class="screen-out">지점</span></button>
+                <button type="button" class="ico-look"><span class="screen-out">지점 상세</span></button>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <!-- //search-view-body -->
+
+        <!-- <button type="button" class="btn-search-view">
+          <span class="screen-out">교차로 상세 열기/닫기 버튼</span>
+        </button> -->
+        <!-- //btn-search-view -->
+      </div>
+      <!-- //search-view-container -->
+
+      <main class="ly-container">
+        <div id="map1" class="ly-map">
+          <!-- 돌발/장애 탭 팝업 -->
+          <!-- active클래스 추가시 노출 / 제거시 숨김 -->
+          <div class="sudden-disorder-popup active" include-html="/base/html/common/sudden_disorder_popup.html"></div>
+          <!-- //sudden-disorder-popup -->
+        </div>
+        <!-- //ly-map -->
+      </main>
+      <!-- //ly-container -->
+
+      <footer class="ly-copyright" include-html="/base/html/common/footer.html"></footer>
+    </div>
+    <!-- //wrapper -->
+
+    <script>
+      // map init
+      window.onload = function () {
+        var map1 = new ngii_wmts.map('map1', { zoom: 6 });
+      };
+
+      /* 지점 검색 UI 스크립트 */
+      var $searchContainer = $('.search-view-container');
+      function allRemoveActive() {
+        $('.depth1 button', $searchContainer).removeClass('active');
+        $('.depth2 .area', $searchContainer).removeClass('active');
+        $('.btn-custom-wrap .depth2', $searchContainer).hide();
+      }
+
+      // 지역, 시스템 버튼 클릭 이벤트
+      $('.btn-custom', $searchContainer).on('click', function () {
+        $(this).parent().toggleClass('active');
+
+        if (!$(this).parent().is('.active')) {
+          allRemoveActive();
+        }
+        if ($(this).parent('.js-custom-wrap-system').is('.active')) {
+          allRemoveActive();
+          $('.js-custom-wrap-location', $searchContainer).removeClass('active');
+        }
+        if ($(this).parent('.js-custom-wrap-location').is('.active')) {
+          $('.js-custom-wrap-system', $searchContainer).removeClass('active');
+        }
+      });
+
+      // 지역 버튼 클릭시 노출되는 1depth 버튼 클릭 이벤트
+      $('.depth1 button', $searchContainer).on('click', function () {
+        var $targetPoint = $(this).data('target');
+
+        if ($(this).data('all') === '전체') {
+          $(this).closest('.btn-custom-wrap').find('.btn-custom').text($(this).data('all'));
+          setTimeout(function () {
+            allRemoveActive();
+            $('.btn-custom-wrap', $searchContainer).removeClass('active');
+          }, 100);
+        }
+
+        $('.depth1 button', $searchContainer).removeClass('active');
+        $(this).addClass('active');
+
+        $('.depth2 .area', $searchContainer).removeClass('active');
+        var $pointArea = $('#' + $targetPoint);
+        $('.btn-custom-wrap .depth2', $searchContainer).show();
+        $pointArea.addClass('active');
+      });
+
+      // 지역 버튼의 1depth 버튼 클릭시 노출되는 2depth 버튼 클릭 이벤트
+      $('.depth2 button', $searchContainer).on('click', function () {
+        var $txt = $(this).text();
+        $(this).closest('.btn-custom-wrap').find('.btn-custom').text($txt);
+        setTimeout(function () {
+          allRemoveActive();
+          $('.btn-custom-wrap', $searchContainer).removeClass('active');
+        }, 100);
+      });
+
+      // 시스템 버튼 클릭 노출 되는 버튼의 클릭 이벤트
+      $('.js-custom-wrap-system .chk-box button', $searchContainer).on('click', function () {
+        var $txt = $(this).text();
+        $(this).closest('.js-custom-wrap-system').removeClass('active').children('.btn-custom').text($txt);
+      });
+
+      // 돌발/장애 탭 메뉴 (퍼블리싱 확인용)
+      setTimeout(function () {
+        $('.sudden-disorder-popup .menu .item').tab({
+          context: $('.sudden-disorder-popup'),
+        });
+      }, 200);
+
+      /* gnb알림 버튼 클릭 이벤트 : 아래 js는 퍼블리싱 확인용입니다. 참고해서 개발화면에 반영 부탁드립니다. */
+      $(document).on('click', '.btn-bell', function () {
+        $('.sudden-disorder-popup').addClass('active');
+        $('.gnb .aside .btn-m').removeClass('active');
+        $('.gnb .aside .pop-user-info').hide();
+      });
+    </script>
+  </body>
+</html>

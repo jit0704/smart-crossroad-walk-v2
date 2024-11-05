@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>지도</title>
+    <script src="/base/js/lib/jquery-3.5.1.min.js"></script>
+    <script src="/base/js/lib/jquery-ui.min.js"></script>
+    <script src="/base/js/lib/semantic.min.js"></script>
+    <script src="/base/js/lib/jquery.modal.min.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="http://map.ngii.go.kr/emap/js/map/OpenLayers-6.4.3.js"></script>
+    <script src="http://map.ngii.go.kr/nps/common/lib/proj4js/proj4.js"></script>
+    <script src="http://map.ngii.go.kr/openapi/wmts_ngiiMap_v6.4.3.js?apikey=04trYP9_xwLAfALjwZ-B8g"></script>
+    <!-- includeHTML.js : 퍼블리싱 확인용 include -->
+    <script src="/base/js/common/includeHTML.js"></script>
+    <script src="/base/js/lib/jquery.notify.js"></script>
+    <script src="/base/js/common/ui.js"></script>
+    <script src="/base/js/common/map-iconbar.js"></script>
+    <link rel="stylesheet" href="http://map.ngii.go.kr/emap/css/map/OpenLayers-6.4.3.css" />
+    <link rel="stylesheet" href="/base/css/common.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- GNB -->
+      <nav class="gnb" include-html="/base/html/common/gnb.html"></nav>
+
+      <main class="ly-container">
+        <div id="map1" class="ly-map">
+          <!-- 지도 타입 선택 -->
+          <!-- <div class="map-type">
+            <label>
+              <input type="radio" checked name="maptype" />
+              <span>일반지도</span>
+            </label>
+            <label>
+              <input type="radio" name="maptype" />
+              <span>위성지도</span>
+            </label>
+          </div> -->
+          <!-- //지도 타입 선택 -->
+
+          <!-- 구역명 -->
+          <div class="ui selection dropdown area-box pos-right3">
+            <input type="hidden" name="" />
+            <div class="default text">서울시 공릉동</div>
+            <div class="menu">
+              <!-- 230916 수정 : div 추가 및 button요소로 변경 -->
+              <div class="inner">
+                <button type="button" class="item">서울시 공릉동하나</button>
+                <button type="button" class="item">서울시 서초구두울울</button>
+                <button type="button" class="item">서울시 금천구</button>
+                <button type="button" class="item">서울시 금천구</button>
+                <button type="button" class="item">서울시 금천구</button>
+                <button type="button" class="item">서울시 금천구</button>
+                <button type="button" class="item">서울시 금천구</button>
+                <button type="button" class="item">서울시 금천구</button>
+              </div>
+              <!-- //inner -->
+              <a href="#" class="area-setting">기본 구역 설정</a>
+            </div>
+          </div>
+          <!-- //구역명 -->
+
+          <!-- 우측 상단 아이콘바 -->
+          <div class="map-iconbar-container map-selection pos-right2">
+            <button type="button" class="btn-display">
+              <span><em>일반지도</em></span>
+            </button>
+            <div class="map-icon-list">
+              <button type="button" class="ic1">
+                <span><em>일반지도</em></span>
+              </button>
+              <button type="button" class="ic2">
+                <span><em>야간지도</em></span>
+              </button>
+              <button type="button" class="ic3">
+                <span><em>위성지도</em></span>
+              </button>
+            </div>
+            <!-- //map-icon-list -->
+          </div>
+          <!-- //map-iconbar-container -->
+
+          <div class="map-iconbar-container pos-right1">
+            <button type="button" class="btn-display">
+              <span><em class="screen-out">현재 적용된 아이콘</em></span>
+            </button>
+            <div class="map-icon-list">
+              <button type="button" class="ic1">
+                <span><em>교차로</em></span>
+              </button>
+              <button type="button" class="ic2">
+                <span><em>돌발</em></span>
+              </button>
+              <button type="button" class="ic3">
+                <span><em>VMS</em></span>
+              </button>
+              <button type="button" class="ic4">
+                <span><em>신호등</em></span>
+              </button>
+              <button type="button" class="ic5">
+                <span><em>LOS</em></span>
+              </button>
+            </div>
+            <!-- //map-icon-list -->
+          </div>
+          <!-- //map-iconbar-container -->
+          <!-- //우측 상단 아이콘바 -->
+
+          <!-- 접근로 별 LOS 표준 범례 -->
+          <button type="button" class="btn-los-legend">범례</button>
+          <div class="los-legend-container tab">
+            <header>
+              <span class="tab-header">
+                <a href="#tab1">교통정보</a>
+                <a href="#tab2">LOS</a>
+              </span>
+              <button type="button" class="btn-close">
+                <span class="screen-out">범례 팝업 닫기</span>
+              </button>
+            </header>
+            <div class="los-legend-content">
+              <div id="tab1" class="traffic-report">
+                <span class="txt">기준 시간 : 2023. 10. 06 15:15</span>
+                <div class="state">
+                  <span>원활</span>
+                  <span>서행</span>
+                  <span>정체</span>
+                </div>
+                <!-- //state -->
+                <p>* 실제 교통상황과 일부 다를 수 있습니다.</p>
+
+                <!-- 240116 교통정보 툴팁 추가 -->
+                <!-- ::: 원활 ::: -->
+                <div class="traffic-report-tooltip smooth">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <th>고속도로 :</th>
+                        <td>80 km<i>▲</i></td>
+                      </tr>
+                      <tr>
+                        <th>국&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;도 :</th>
+                        <td>60 km<i>▲</i>(연결로 : 40km/h<i>▲</i>)</td>
+                      </tr>
+                      <tr>
+                        <th>시내도로 :</th>
+                        <td>40 km<i>▲</i>(연결로 : 25km/h<i>▲</i>)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- //traffic-report-tooltip -->
+
+                <!-- ::: 서행 ::: -->
+                <div class="traffic-report-tooltip slow-down">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <th>고속도로 :</th>
+                        <td>50~80 km</td>
+                      </tr>
+                      <tr>
+                        <th>국&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;도 :</th>
+                        <td>50~60 km(연결로 : 20~40km/h)</td>
+                      </tr>
+                      <tr>
+                        <th>시내도로 :</th>
+                        <td>20~40 km(연결로 : 15~25km/h)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- //traffic-report-tooltip -->
+
+                <!-- ::: 정체 ::: -->
+                <div class="traffic-report-tooltip congested">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <th>고속도로 :</th>
+                        <td>20 km<i>▼</i></td>
+                      </tr>
+                      <tr>
+                        <th>국&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;도 :</th>
+                        <td>20 km<i>▼</i>(연결로 : 10km/h<i>▼</i>)</td>
+                      </tr>
+                      <tr>
+                        <th>시내도로 :</th>
+                        <td>10 km<i>▼</i>(연결로 : 10km/h<i>▼</i>)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- //traffic-report-tooltip -->
+              </div>
+              <!-- //traffic-report -->
+              <div id="tab2" class="los-info">
+                <ul>
+                  <li class="lv-a">A등급</li>
+                  <li class="lv-b">B등급</li>
+                  <li class="lv-c">C등급</li>
+                  <li class="lv-d">D등급</li>
+                </ul>
+                <ul>
+                  <li class="lv-e">E등급</li>
+                  <li class="lv-f">F등급</li>
+                  <li class="lv-ff">FF등급</li>
+                  <li class="lv-fff">FFF등급</li>
+                </ul>
+              </div>
+              <!-- //los-info -->
+            </div>
+            <!-- //los-legend-content -->
+          </div>
+          <!-- //los-legend-container -->
+
+          <!-- 231216 시스템 아이콘(교차로) 추가 / 클릭시 디자인은 active 클래스 추가해주세요. -->
+          <i class="ico-system-cr" style="left: 800px; top: 282px"><span class="screen-out">교차로</span></i>
+
+          <!-- <dl class="los-legend">
+            <dt>접근로 별 LOS 표준 범례</dt>
+            <dd>
+              <ul>
+                <li class="lv-a">A등급</li>
+                <li class="lv-b">B등급</li>
+                <li class="lv-c">C등급</li>
+                <li class="lv-d">D등급</li>
+              </ul>
+              <ul>
+                <li class="lv-e">E등급</li>
+                <li class="lv-f">F등급</li>
+                <li class="lv-ff">FF등급</li>
+                <li class="lv-fff">FFF등급</li>
+              </ul>
+            </dd>
+          </dl> -->
+          <!-- //접근로 별 LOS 표준 범례 -->
+
+          <!-- 횡단보도 아이콘
+              * style 속성의 left, top값으로 지도 위 좌표값 설정하시면 됩니다.
+              * 지도 좌측 상단 기준으로 left: 0; top: 0; 입니다.
+              * 지도 위에 표시되는 모든 아이콘의 좌표값 설정 방법은 위와 동일합니다.
+          -->
+          <!-- 230815 : 횡단보도 아이콘에 js-no-dimed-popup-call 클래스명 추가 및 data-target 속성 추가
+                        data-target 속성의 값과 동일한 id값의 팝업을 호출합니다.
+                        팝업의 id값 변경시 data-target 값과 동일하게 맞춰주세요.
+          -->
+          <!-- <i class="ico-cw js-no-dimed-popup-call" data-target="crosswalk-popup" style="left: 300px; top: 282px"
+            ><span class="screen-out">횡단보도</span></i
+          > -->
+
+          <!-- 교차로 아이콘
+              * style 속성의 left, top값으로 지도 위 좌표값 설정하시면 됩니다.
+              * 교차로에 표시되는 색상 막대의 각도는 style 속성의 transform: rotate(0deg) 각도로 설정하시면 됩니다. ex) transform: rotate(20deg)
+              * 교차로에 표시되는 막대의 색상은 기본값이 녹색이고, 주황색은 c-orange 클래스명 추가, 적색은 c-red 클래스명 추가하시면 됩니다.
+              * 교차로 LOS 등급을 나타내는 둥근 원의 색상은 아래의 class명으로 사용해주시면 됩니다.
+              * lv-a, lv-b, lv-c, lv-d, lv-e, lv-f, lv-ff, lv-fff
+          -->
+          <div class="los-display lv-a" style="left: 400px; top: 382px">
+            <!-- 230815 : 교차로 아이콘에 js-no-dimed-popup-call 클래스명 추가 및 data-target 속성 추가
+                          data-target 속성의 값과 동일한 id값의 팝업을 호출합니다.
+                          팝업의 id값 변경시 data-target 값과 동일하게 맞춰주세요.
+            -->
+            <i class="ico-cr js-no-dimed-popup-call" data-target="crossing-popup"><span class="screen-out">교차로</span></i>
+
+            <i class="traffic-display top c-red" style="transform: rotate(0deg)"></i>
+            <i class="traffic-display bottom c-orange" style="transform: rotate(0deg)"></i>
+            <i class="traffic-display left" style="transform: rotate(0deg)"></i>
+            <i class="traffic-display right" style="transform: rotate(0deg)"></i>
+          </div>
+
+          <!-- 230815 : 장애 아이콘 -->
+          <i class="ico-triangle-exclamation" style="left: 453px; top: 378px"><span class="screen-out">장애 발생</span></i>
+
+          <!-- 횡단보도 클릭시 나오는 팝업 -->
+          <!-- <div id="crosswalk-popup" class="map-popup">작업예정</div> -->
+
+          <!-- 230815 : 교차로 클릭시 나오는 팝업 -->
+          <div id="crossing-popup" class="map-popup mw377">
+            <header class="map-popup-header">공릉역 사거리</header>
+            <div class="map-popup-content">
+              <div class="line-box-container">
+                <div class="box-row">
+                  <div class="box is-label">
+                    <em class="tit">LOS 등급</em>
+                    <span class="box-label c-violet">FFF 등급</span>
+                  </div>
+                  <div class="box">
+                    <em class="tit">차량 통행량</em>
+                    <span class="txt">3,100대</span>
+                  </div>
+                </div>
+                <!-- //box-row -->
+                <div class="box">
+                  <em class="tit">카메라 상태</em>
+                  <span class="txt-normality">정상</span>
+                  <!-- <span class="txt-disorder">카메라 이상(192.168.172.130)</span> -->
+                </div>
+                <div class="box-column">
+                  <div class="box">
+                    <em class="tit">함체 상태</em>
+                  </div>
+                  <div class="box">
+                    <table class="state-tbl">
+                      <colgroup>
+                        <col style="width: 15%" />
+                        <col />
+                        <col style="width: 15%" />
+                        <col />
+                      </colgroup>
+                      <tbody>
+                        <tr>
+                          <th>팬</th>
+                          <td>
+                            <div class="bind">
+                              <label class="radio-txt2 rounded">
+                                <input type="radio" name="state1" />
+                                <span>ON</span>
+                              </label>
+                              <label class="radio-txt2 rounded">
+                                <input type="radio" name="state1" />
+                                <span>OFF</span>
+                              </label>
+                            </div>
+                          </td>
+                          <th>히터</th>
+                          <td>
+                            <div class="bind">
+                              <label class="radio-txt2 rounded">
+                                <input type="radio" name="state2" />
+                                <span>ON</span>
+                              </label>
+                              <label class="radio-txt2 rounded">
+                                <input type="radio" name="state2" />
+                                <span>OFF</span>
+                              </label>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>앞문</th>
+                          <td>
+                            <div class="bind">
+                              <label class="radio-txt2 rounded">
+                                <input type="radio" name="state3" />
+                                <span>열림</span>
+                              </label>
+                              <label class="radio-txt2 rounded">
+                                <input type="radio" name="state3" />
+                                <span>닫힘</span>
+                              </label>
+                            </div>
+                          </td>
+                          <th>뒷문</th>
+                          <td>
+                            <div class="bind">
+                              <label class="radio-txt2 rounded">
+                                <input type="radio" name="state4" />
+                                <span>열림</span>
+                              </label>
+                              <label class="radio-txt2 rounded">
+                                <input type="radio" name="state4" />
+                                <span>닫힘</span>
+                              </label>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- //box-column -->
+              </div>
+              <!-- //line-box-container -->
+            </div>
+            <!-- //map-popup-content -->
+            <div class="map-popup-btn-group">
+              <a href="#" class="ui primary basic button rounded">교차로 상세</a>
+              <a href="#" class="ui primary basic button rounded">지점 관리</a>
+              <a href="#" class="ui primary basic button rounded">도로 관리</a>
+            </div>
+            <!-- //map-popup-btn-group -->
+          </div>
+          <!-- //map-popup -->
+        </div>
+        <!-- //ly-map -->
+      </main>
+      <!-- //ly-container -->
+
+      <footer class="ly-copyright" include-html="/base/html/common/footer.html"></footer>
+    </div>
+    <!-- //wrapper -->
+
+    <script>
+      // map init
+      window.onload = function () {
+        var map1 = new ngii_wmts.map('map1', { zoom: 6 });
+      };
+
+      // 범례 클릭 이벤트
+      $('.btn-los-legend').on('click', function () {
+        $('.los-legend-container').show(0, function () {
+          $('.tab-header a:first-child', '.los-legend-container.tab').trigger('click');
+        });
+      });
+      $('.los-legend-container .btn-close').on('click', function () {
+        $('.los-legend-container').hide();
+      });
+      $('.tab-header a', '.los-legend-container.tab').on('click', function (e) {
+        e.preventDefault();
+        var $hash = $(this).attr('href');
+        $('.los-legend-container.tab .tab-header a').removeClass('active');
+        $('.los-legend-container.tab .los-legend-content > div').hide();
+        $(this).addClass('active');
+        $($hash).show();
+      });
+      // 240116: 범례 > 교통정보 탭 툴팁 노출
+      $('.los-legend-content .traffic-report .state span').on({
+        mouseenter: function () {
+          $('.traffic-report-tooltip').hide();
+          var $trafficReport = $(this).closest('.traffic-report');
+          switch ($(this).index()) {
+            case 0:
+              $trafficReport.find('.smooth').show();
+              break;
+            case 1:
+              $trafficReport.find('.slow-down').show();
+              break;
+            case 2:
+              $trafficReport.find('.congested').show();
+              break;
+          }
+        },
+        mouseleave: function () {
+          $('.traffic-report-tooltip').hide();
+        },
+      });
+
+      // 230815 팝업 호출 함수
+      function noDimedPopup() {
+        $('.js-no-dimed-popup-call').on('click', function () {
+          var $this = $(this);
+          var $top = $this.offset().top;
+          var $left = $this.offset().left;
+          var $target = $this.data('target');
+          var $popup = $('#' + $target);
+          var $popupTop = $popup.outerHeight(true);
+          var $popupLeft = $popup.outerWidth(true) / 2;
+          if ($popup.css('display') !== 'block') {
+            $popup
+              .css({
+                top: $top - $popupTop,
+                left: $left - $popupLeft - 35,
+              })
+              .fadeIn(200);
+          }
+          $this.addClass('active'); // 230927: 교차로 아이콘 클릭시 교차로 아이콘 변경
+        });
+      }
+      noDimedPopup();
+
+      // notify popup 퍼블리싱 확인용
+      // $(document).on('click', '.btn-bell', function () {
+      //   var locationOutbreak = '태릉입구역 사거리';
+      //   $.notify({
+      //     body: `${locationOutbreak}, ${$('<em>역주행 발생</em>').prop('outerHTML')}`, // 내용
+      //     position: 'bottom-left', // 위치 설정
+      //     icon: 'notify-bug', // 아이콘 이미지
+      //     forever: true,
+      //   });
+      // });
+
+      /* - notify popup 개발시 참고
+         - setInterval함수는 실제 돌발 발생시의 상황을 비슷하게 구성하여 확인해보려고 테스트로 작성함. */
+      setInterval(() => {
+        var locationOutbreak = '태릉입구역 사거리';
+        $.notify({
+          body: `${locationOutbreak}, ${$('<em>역주행 발생</em>').prop('outerHTML')}`, // 팝업 내용
+          position: 'bottom-left', // 팝업 위치 설정
+          icon: 'notify-bug', // 팝업 아이콘 이미지
+          closeClick: false, // 팝업 클릭시 숨기지 않기
+          timeout: 5000, // 팝업 5초 유지
+          max: 10, // 팝업 최대 10개까지 노출
+          click: function (e) {
+            // 팝업 클릭시 실행되는 callback 함수
+            alert('상세페이지로 이동');
+          },
+        });
+      }, 1500);
+    </script>
+  </body>
+</html>
