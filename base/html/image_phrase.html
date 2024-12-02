@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>이미지 문구 관리</title>
+    <script src="/base/js/lib/jquery-3.5.1.min.js"></script>
+    <script src="/base/js/lib/jquery-ui.min.js"></script>
+    <script src="/base/js/lib/semantic.min.js"></script>
+    <script src="/base/js/lib/jquery.modal.min.js"></script>
+    <!-- includeHTML.js : 퍼블리싱 확인용 include -->
+    <script src="/base/js/common/includeHTML.js"></script>
+    <script src="/base/js/common/ui.js"></script>
+    <link rel="stylesheet" href="/base/css/common.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- GNB -->
+      <nav class="gnb" include-html="/base/html/common/gnb.html"></nav>
+
+      <main class="ly-container">
+        <div class="ly-sub">
+          <div class="ly-setting">
+            <div class="ui breadcrumb">
+              <i class="home icon"></i>
+              <i class="right angle icon divider"></i>
+              <span class="section">장비제어</span>
+              <i class="right angle icon divider"></i>
+              <div class="section">VMS 관리</div>
+              <i class="right angle icon divider"></i>
+              <div class="section">이미지 문구 관리</div>
+            </div>
+            <!-- //breadcrumb -->
+
+            <section class="filter-grouop">
+              <div class="inner">
+                <div class="selectbox-wrap primary label-none">
+                  <select>
+                    <option value="">서비스 항목</option>
+                    <option value="">아이템1</option>
+                    <option value="">아이템2</option>
+                    <option value="">아이템3</option>
+                  </select>
+                </div>
+                <!-- //selectbox-wrap -->
+                <button type="button" class="btn-data-search">조회</button>
+              </div>
+              <!-- //inner -->
+            </section>
+            <!-- //filter-grouop -->
+
+            <section class="two-column image-word-manag-container">
+              <div class="left">
+                <div class="button-function-group">
+                  <em class="tit">이미지 목록</em>
+                </div>
+                <!-- //button-function-group -->
+
+                <div class="data-tbl-very">
+                  <!-- 231021 table에 is-fncbtn-and-chkbox 클래스명으로 변경  -->
+                  <table class="ui very basic table is-fncbtn-and-chkbox">
+                    <colgroup>
+                      <col style="width: 72px" />
+                      <col style="width: 56px" />
+                      <col style="width: 120px" />
+                      <col style="width: 120px" />
+                      <col />
+                      <col />
+                      <col />
+                      <col style="width: 190px" />
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>
+                          <div class="ui checkbox primary-chkbox txt-none c-navy">
+                            <input type="checkbox" />
+                            <label></label>
+                          </div>
+                        </th>
+                        <th>No</th>
+                        <th>시나리오 종류</th>
+                        <th>표출 종류</th>
+                        <th>표출 순서</th>
+                        <th>표출시각(초)</th>
+                        <th>이미지 번호</th>
+                        <th>이미지 파일명</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="active">
+                        <td>
+                          <div class="ui checkbox primary-chkbox txt-none c-bluesky">
+                            <input type="checkbox" />
+                            <label></label>
+                          </div>
+                        </td>
+                        <td>1</td>
+                        <td>소통 원활</td>
+                        <td>정체상황</td>
+                        <td>1</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>BID0000.PNG</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="ui checkbox primary-chkbox txt-none c-bluesky">
+                            <input type="checkbox" />
+                            <label></label>
+                          </div>
+                        </td>
+                        <td>1</td>
+                        <td>소통 원활</td>
+                        <td>정체상황</td>
+                        <td>1</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>BID0000.PNG</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- //data-tbl-very -->
+              </div>
+              <!-- //left -->
+
+              <div class="right">
+                <div class="complex-data-container">
+                  <header>
+                    <em>VMS 시나리오 편집</em>
+                  </header>
+                  <div class="data-tbl type2 edit1">
+                    <table>
+                      <colgroup>
+                        <col style="width: 60px" />
+                        <col style="width: 150px" />
+                        <col style="width: 55px" />
+                        <col style="width: 150px" />
+                        <col style="width: 100px" />
+                        <col style="width: 100px" />
+                        <col style="width: 100px" />
+                        <col />
+                      </colgroup>
+                      <tbody>
+                        <tr>
+                          <th>Height</th>
+                          <td>
+                            <div class="ui input rounded">
+                              <input type="text" />
+                            </div>
+                          </td>
+                          <th>Width</th>
+                          <td>
+                            <div class="ui input rounded">
+                              <input type="text" />
+                            </div>
+                          </td>
+                          <th>Top Margin</th>
+                          <td>
+                            <div class="ui input rounded">
+                              <input type="text" />
+                            </div>
+                          </td>
+                          <th>Left Margin</th>
+                          <td>
+                            <div class="ui input rounded">
+                              <input type="text" />
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- //data-tbl -->
+                  <div class="data-tbl type2 edit2">
+                    <table>
+                      <colgroup>
+                        <col style="width: 10%" />
+                        <col style="width: 22.5%" />
+                        <col style="width: 22.5%" />
+                        <col style="width: 22.5%" />
+                        <col style="width: 22.5%" />
+                      </colgroup>
+                      <tbody>
+                        <tr>
+                          <th>텍스트1</th>
+                          <td>
+                            <div class="ui input rounded">
+                              <input type="text" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="selectbox-wrap rounded">
+                              <select>
+                                <option value="">white</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="selectbox-wrap rounded">
+                              <select>
+                                <option value="">폰트 크기</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="selectbox-wrap rounded">
+                              <select>
+                                <option value="">폰트 종류</option>
+                                <option value="">나눔고딕</option>
+                              </select>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>텍스트2</th>
+                          <td>
+                            <div class="ui input rounded">
+                              <input type="text" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="selectbox-wrap rounded">
+                              <select>
+                                <option value="">white</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="selectbox-wrap rounded">
+                              <select>
+                                <option value="">폰트 크기</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="selectbox-wrap rounded">
+                              <select>
+                                <option value="">폰트 종류</option>
+                                <option value="">나눔고딕</option>
+                              </select>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>텍스트3</th>
+                          <td>
+                            <div class="ui input rounded">
+                              <input type="text" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="selectbox-wrap rounded">
+                              <select>
+                                <option value="">white</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="selectbox-wrap rounded">
+                              <select>
+                                <option value="">폰트 크기</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="selectbox-wrap rounded">
+                              <select>
+                                <option value="">폰트 종류</option>
+                                <option value="">나눔고딕</option>
+                              </select>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>텍스트4</th>
+                          <td>
+                            <div class="ui input rounded">
+                              <input type="text" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="selectbox-wrap rounded">
+                              <select>
+                                <option value="">white</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="selectbox-wrap rounded">
+                              <select>
+                                <option value="">폰트 크기</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="selectbox-wrap rounded">
+                              <select>
+                                <option value="">폰트 종류</option>
+                                <option value="">나눔고딕</option>
+                              </select>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>텍스트5</th>
+                          <td>
+                            <div class="ui input rounded">
+                              <input type="text" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="selectbox-wrap rounded">
+                              <select>
+                                <option value="">white</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="selectbox-wrap rounded">
+                              <select>
+                                <option value="">폰트 크기</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="selectbox-wrap rounded">
+                              <select>
+                                <option value="">폰트 종류</option>
+                                <option value="">나눔고딕</option>
+                              </select>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- //data-tbl -->
+                </div>
+                <!-- //complex-data-container -->
+
+                <div class="button-function-group">
+                  <div class="left">
+                    <div class="selectbox-wrap rounded">
+                      <select>
+                        <option value="">04VG000000399</option>
+                      </select>
+                    </div>
+                    <span>BID2201.PNG</span>
+                  </div>
+                  <!-- //left -->
+                  <div class="right">
+                    <button class="ui secondary basic button">이미지 불러오기</button>
+                    <button class="ui secondary basic button">적용</button>
+                    <button class="ui secondary basic button">원복</button>
+                  </div>
+                  <!-- //right -->
+                </div>
+                <!-- //button-function-group -->
+
+                <section class="two-column">
+                  <div class="left">
+                    <div class="complex-data-container">
+                      <header>
+                        <em>미리보기</em>
+                        <div class="right">
+                          <div class="ui checkbox primary-chkbox c-bluesky">
+                            <input id="chk1" type="checkbox" />
+                            <label for="chk1">원본 크기</label>
+                          </div>
+                          <div class="ui checkbox primary-chkbox c-bluesky">
+                            <input id="chk2" type="checkbox" />
+                            <label for="chk2">200%</label>
+                          </div>
+                          <div class="ui checkbox primary-chkbox c-bluesky">
+                            <input id="chk3" type="checkbox" />
+                            <label for="chk3">50%</label>
+                          </div>
+                        </div>
+                        <!-- //right -->
+                      </header>
+                      <main>
+                        <img src="/base/images/temp/img_word.svg" alt="" />
+                      </main>
+                    </div>
+                    <!-- //complex-data-container -->
+                  </div>
+                  <!-- //left -->
+
+                  <div class="right">
+                    <div class="data-tbl type2">
+                      <table>
+                        <colgroup>
+                          <col style="width: 15%" />
+                          <col />
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th>
+                              <div class="ui checkbox primary-chkbox txt-none c-navy">
+                                <input type="checkbox" />
+                                <label></label>
+                              </div>
+                            </th>
+                            <th>VMS ID</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="ui checkbox primary-chkbox txt-none c-bluesky">
+                                <input type="checkbox" />
+                                <label></label>
+                              </div>
+                            </td>
+                            <td>04VM000000399</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="ui checkbox primary-chkbox txt-none c-bluesky">
+                                <input type="checkbox" />
+                                <label></label>
+                              </div>
+                            </td>
+                            <td>04VM000000399</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="ui checkbox primary-chkbox txt-none c-bluesky">
+                                <input type="checkbox" />
+                                <label></label>
+                              </div>
+                            </td>
+                            <td>04VM000000399</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="ui checkbox primary-chkbox txt-none c-bluesky">
+                                <input type="checkbox" />
+                                <label></label>
+                              </div>
+                            </td>
+                            <td>04VM000000399</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="ui checkbox primary-chkbox txt-none c-bluesky">
+                                <input type="checkbox" />
+                                <label></label>
+                              </div>
+                            </td>
+                            <td>04VM000000399</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="ui checkbox primary-chkbox txt-none c-bluesky">
+                                <input type="checkbox" />
+                                <label></label>
+                              </div>
+                            </td>
+                            <td>04VM000000399</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- //data-tbl -->
+                    <div class="bot-button-wrap">
+                      <button class="ui secondary basic button">VMS 전송</button>
+                    </div>
+                    <!-- //bot-button-wrap -->
+                  </div>
+                  <!-- //right -->
+                </section>
+                <!-- //two-column -->
+              </div>
+              <!-- //right -->
+            </section>
+            <!-- //two-column -->
+          </div>
+          <!-- //ly-setting -->
+        </div>
+        <!-- //ly-sub -->
+      </main>
+      <!-- //ly-container -->
+
+      <footer class="ly-copyright c-white" include-html="/base/html/common/footer.html"></footer>
+    </div>
+    <!-- //wrapper -->
+  </body>
+</html>

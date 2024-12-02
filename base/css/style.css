@@ -3872,8 +3872,11 @@ body ::-webkit-scrollbar-track {
 }
 
 /* 체크박스 리스트 아코디언 메뉴(연계 카메라 등록 팝업) */
-.accordion-chk-list > li + li {
+.accordion-chk-list > li + li, .accordion-chk-list-content > div + div {
   border-top: 1px solid #e8e8e8;
+}
+.accordion-chk-list-title.area {
+	border-bottom: 1px solid #e8e8e8;
 }
 .accordion-chk-list > li > .accordion-chk-list-title .ui.primary-chkbox {
   margin-left: 1.5rem;
@@ -3912,9 +3915,9 @@ body ::-webkit-scrollbar-track {
   -webkit-transition: background 0.2s;
   transition: background 0.2s;
 }
-.accordion-chk-list-title.active {
+/* .accordion-chk-list-title.active {
   border-bottom: 1px solid #e8e8e8;
-}
+} */
 .accordion-chk-list-title.active button::after {
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
@@ -3980,9 +3983,9 @@ body ::-webkit-scrollbar-track {
   display: inline-block;
   vertical-align: -0.3rem;
 }
-.accordion-chk-list-content + .accordion-chk-list-content {
+/* .accordion-chk-list-content + .accordion-chk-list-content {
   border-top: 1px solid #e8e8e8;
-}
+} */
 .accordion-chk-list-content .accordion-chk-list-content .ui.primary-chkbox {
   padding-left: 6.9rem;
 }
@@ -3998,7 +4001,6 @@ body ::-webkit-scrollbar-track {
 .accordion-chk-list-content .accordion-chk-list-content .ui.primary-chkbox label::after {
   top: 1rem;
 }
-
 /* 데이터 테이블 목록 */
 .data-tbl-very {
   overflow-y: auto;
@@ -5277,8 +5279,8 @@ body ::-webkit-scrollbar-track {
 }
 .sudden-disorder-popup .tab-sudden-list li [class*=noti-sudden] {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 8.2rem;
-          flex: 0 0 8.2rem;
+      -ms-flex: 0 0 8.9rem;
+          flex: 0 0 8.9rem;
   line-height: 2rem;
   text-align: center;
   font-size: 1.4rem;
@@ -5307,6 +5309,14 @@ body ::-webkit-scrollbar-track {
 }
 .sudden-disorder-popup .tab-sudden-list li .noti-sudden9 {
   color: #324b7e;
+  background: #d8deea;
+}
+.sudden-disorder-popup .tab-sudden-list li .noti-sudden10 {
+  color: #90ad9e;
+  background: #d8deea;
+}
+.sudden-disorder-popup .tab-sudden-list li .noti-sudden11 {
+  color: #8da3a4;
   background: #d8deea;
 }
 .sudden-disorder-popup .tab-sudden-list li.read {
@@ -6375,14 +6385,14 @@ body.is-notify-position-adjust #notify.bottom-left {
 .ly-setting .button-function-group {
   margin-bottom: 1.5rem;
 }
-.ly-setting > .data-tbl-very .ui.very.basic.table {
+.ly-setting .data-tbl-very .ui.very.basic.table {
   table-layout: fixed;
 }
-.ly-setting > .data-tbl-very .ui.very.basic.table thead th {
+.ly-setting .data-tbl-very .ui.very.basic.table thead th {
   height: 4.1rem;
   padding: 0 !important;
 }
-.ly-setting > .data-tbl-very .ui.very.basic.table tbody td {
+.ly-setting .data-tbl-very .ui.very.basic.table tbody td {
   overflow: hidden;
   word-break: break-all;
   text-overflow: ellipsis;

@@ -389,6 +389,396 @@
   vertical-align: top;
 }
 
+/* VMS 관리(정체 알림 서비스 VMS관리 화면 디자인을 영암 대불산단 화면에 반영) */
+.one-column .button-function-group > .tit {
+  line-height: normal;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1e5f8d;
+}
+.one-column .button-function-group .ui.button.basic.secondary.rounded {
+  min-width: 12rem;
+}
+
+.two-column {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 0 2.5rem;
+}
+.two-column > .left {
+  flex: 1;
+}
+.two-column > .left .data-tbl-very {
+  height: 71.5rem;
+}
+.two-column > .right {
+  flex: 1;
+}
+.two-column > .right .bind {
+  border: 1px solid #e8e8e8;
+}
+.two-column .button-function-group > .tit {
+  line-height: 3.1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1e5f8d;
+}
+
+.data-tbl.type2::-webkit-scrollbar {
+  width: 0.4rem;
+}
+.data-tbl.type2 tbody th {
+  font-size: 1.6rem;
+}
+.data-tbl.type2 tbody td {
+  padding-bottom: 0.8rem;
+}
+.data-tbl.type2 tbody td .selectbox-wrap.rounded select {
+  padding: 0.58rem;
+  font-size: 1.6rem;
+}
+.data-tbl.type2 tbody td .ui.input.rounded input {
+  line-height: 3rem;
+  font-size: 1.6rem;
+}
+.data-tbl.type2 tbody td .txt {
+  line-height: 3.1rem;
+  font-size: 1.6rem;
+  color: #bdbdbd;
+}
+
+.complex-data-container {
+  border: 1px solid #e8e8e8;
+}
+.complex-data-container > header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  padding: 1.15rem 2rem;
+  background: #f8f8f8;
+  border-bottom: 1px solid #e8e8e8;
+}
+.complex-data-container > header > em {
+  line-height: 2.4rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #596f80;
+}
+.complex-data-container > header .right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  gap: 0 1.4rem;
+}
+.complex-data-container > header .right .ui.primary-chkbox label {
+  padding-left: 2rem;
+  font-size: 1.6rem;
+}
+
+/* 이미지 관리 화면, 시나리오 관리 화면 */
+.image-word-container > .right > .bind,
+.scenario-container > .right > .bind {
+  height: 71.5rem;
+  padding: 4.5rem 10rem 5.1rem;
+}
+.image-word-container > .right > .bind .data-tbl,
+.scenario-container > .right > .bind .data-tbl {
+  margin-bottom: 4.5rem;
+}
+.image-word-container > .right > .bind .img-word-container,
+.scenario-container > .right > .bind .img-word-container {
+  padding-top: 7.1rem;
+  border-top: 1px solid #e8e8e8;
+  text-align: center;
+}
+.image-word-container > .right > .bind .img-word-container img,
+.scenario-container > .right > .bind .img-word-container img {
+  width: 37.2rem;
+}
+
+.scenario-container > .right > .bind {
+  height: auto;
+  padding: 4.45rem 10rem;
+}
+.scenario-container > .right > .bind + .button-function-group {
+  margin-top: 4.6rem;
+}
+.scenario-container > .right > .bind .data-tbl {
+  margin-bottom: 0;
+}
+.scenario-container > .right > .bind.img-info .img-word-container {
+  padding-top: 0;
+  border-top: 0;
+}
+.scenario-container > .right > .bind.img-info .img-word-container em {
+  display: block;
+  font-size: 1.6rem;
+  color: #1e5f8d;
+}
+.scenario-container > .right > .bind.img-info .img-word-container img {
+  display: block;
+  margin: 3rem auto 0;
+}
+
+/* 이미지 문구 관리 화면 */
+.image-word-manag-container > .right > .complex-data-container .data-tbl {
+  padding: 2rem 3rem;
+}
+.image-word-manag-container > .right > .complex-data-container .data-tbl.edit1 .ui.input {
+  width: auto;
+}
+.image-word-manag-container > .right > .complex-data-container .data-tbl.edit1 .ui.input input {
+  width: 8rem;
+  text-align: center;
+}
+.image-word-manag-container > .right > .complex-data-container .data-tbl.edit2 {
+  border-top: 1px solid rgba(232, 232, 232, 0.53);
+}
+.image-word-manag-container > .right > .complex-data-container .data-tbl.edit2.data-tbl tbody th {
+  padding-bottom: 0.5rem;
+}
+.image-word-manag-container > .right > .complex-data-container .data-tbl.edit2.data-tbl tbody td {
+  padding-left: 0.4rem;
+  padding-bottom: 0.5rem;
+}
+.image-word-manag-container > .right .button-function-group {
+  margin: 1.5rem 0 3rem;
+}
+.image-word-manag-container > .right .button-function-group .left {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  gap: 0 2rem;
+}
+.image-word-manag-container > .right .button-function-group .left .selectbox-wrap.rounded select {
+  padding: 0.47rem 3rem 0.47rem 0.47rem;
+  font-size: 1.6rem;
+  color: #727272;
+}
+.image-word-manag-container > .right .button-function-group .left span {
+  font-size: 1.6rem;
+  color: #bdbdbd;
+}
+.image-word-manag-container > .right .button-function-group .right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  gap: 0 0.5rem;
+}
+.image-word-manag-container > .right .button-function-group .right .ui.button.basic.secondary {
+  line-height: 2.9rem;
+  font-size: 1.6rem;
+}
+.image-word-manag-container > .right .two-column {
+  gap: 0 1rem;
+}
+.image-word-manag-container > .right .two-column > .left {
+  flex: 0 0 auto;
+  width: 53.2rem;
+}
+.image-word-manag-container > .right .two-column > .left .complex-data-container main {
+  padding: 6.4rem 0;
+  text-align: center;
+}
+.image-word-manag-container > .right .two-column > .left .complex-data-container main img {
+  width: 27.6rem;
+}
+.image-word-manag-container > .right .two-column > .right .data-tbl.type2 {
+  overflow-y: auto;
+  height: 28.4rem;
+  border: 1px solid #e8e8e8;
+}
+.image-word-manag-container > .right .two-column > .right .data-tbl.type2 table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.image-word-manag-container > .right .two-column > .right .data-tbl.type2 table thead th {
+  height: 4.8rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #596f80;
+  background: #f8f8f8;
+  border-bottom: 1px solid #e8e8e8;
+}
+.image-word-manag-container > .right .two-column > .right .data-tbl.type2 table tbody td {
+  height: 3.89rem;
+  padding: 0;
+  text-align: center;
+  font-size: 1.6rem;
+  border-bottom: 1px solid #e8e8e8;
+}
+.image-word-manag-container > .right .two-column > .right .bot-button-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-content: flex-end;
+  padding-top: 1.5rem;
+}
+.image-word-manag-container > .right .two-column > .right .bot-button-wrap .ui.button.basic.secondary {
+  line-height: 2.9rem;
+  font-size: 1.6rem;
+}
+
+/* 문구 편집 팝업 */
+.vms-edit {
+  width: 160.4rem;
+}
+.vms-edit ~ a.close-modal {
+  top: 2rem;
+}
+.vms-edit .modal-header {
+  height: 5.6rem;
+}
+.vms-edit .modal-body {
+  padding: 2rem 3rem 3rem;
+}
+.vms-edit .modal-body > .txt {
+  margin-bottom: 1.5rem;
+  line-height: 1.9rem;
+  font-size: 1.6rem;
+  color: #5285aa;
+}
+.vms-edit .modal-body > section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 0 1rem;
+}
+.vms-edit .modal-body > section .bind1 {
+  width: 70.9rem;
+}
+.vms-edit .modal-body > section .bind1 .data-tbl {
+  padding: 2rem 3rem;
+}
+.vms-edit .modal-body > section .bind1 .data-tbl > .tit {
+  display: block;
+  margin-bottom: 1rem;
+  line-height: 2.1rem;
+  color: #1e5f8d;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.vms-edit .modal-body > section .bind1 .data-tbl.edit1 .ui.input {
+  width: auto;
+}
+.vms-edit .modal-body > section .bind1 .data-tbl.edit1 .ui.input input {
+  width: 8rem;
+  text-align: center;
+}
+.vms-edit .modal-body > section .bind1 .data-tbl.edit2 {
+  border-top: 1px solid rgba(232, 232, 232, 0.53);
+}
+.vms-edit .modal-body > section .bind1 .data-tbl.edit2.data-tbl tbody th {
+  padding-bottom: 0.5rem;
+}
+.vms-edit .modal-body > section .bind1 .data-tbl.edit2.data-tbl tbody td {
+  padding-left: 0.4rem;
+  padding-bottom: 0.5rem;
+}
+.vms-edit .modal-body > section .bind1 .button-function-group {
+  margin-top: 1.5rem;
+}
+.vms-edit .modal-body > section .bind1 .button-function-group .left {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  gap: 0 2rem;
+}
+.vms-edit .modal-body > section .bind1 .button-function-group .left em {
+  color: #727272;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.vms-edit .modal-body > section .bind1 .button-function-group .left span {
+  font-size: 1.6rem;
+  color: #bdbdbd;
+}
+.vms-edit .modal-body > section .bind1 .button-function-group .right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  gap: 0 0.5rem;
+}
+.vms-edit .modal-body > section .bind1 .button-function-group .right .ui.button.basic.secondary {
+  line-height: 2.9rem;
+  font-size: 1.6rem;
+}
+.vms-edit .modal-body > section .bind2 {
+  width: 50.3rem;
+}
+.vms-edit .modal-body > section .bind2 .complex-data-container main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 36.9rem;
+}
+.vms-edit .modal-body > section .bind2 .complex-data-container main img {
+  width: 37.2rem;
+}
+.vms-edit .modal-body > section .bind3 {
+  flex: 1;
+}
+.vms-edit .modal-body > section .bind3 .data-tbl.type2 {
+  overflow-y: auto;
+  height: 37.3rem;
+  padding: 0;
+  border: 1px solid #e8e8e8;
+}
+.vms-edit .modal-body > section .bind3 .data-tbl.type2 table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.vms-edit .modal-body > section .bind3 .data-tbl.type2 table thead th {
+  height: 4.8rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  color: #596f80;
+  background: #f8f8f8;
+  border-bottom: 1px solid #e8e8e8;
+}
+.vms-edit .modal-body > section .bind3 .data-tbl.type2 table tbody td {
+  height: 4.6rem;
+  padding: 0;
+  text-align: center;
+  font-size: 1.6rem;
+  border-bottom: 1px solid #e8e8e8;
+}
+.vms-edit .modal-body > section .bind3 .bot-button-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-content: flex-end;
+  padding-top: 1.5rem;
+}
+.vms-edit .modal-body > section .bind3 .bot-button-wrap .ui.button.basic.secondary {
+  line-height: 2.9rem;
+  font-size: 1.6rem;
+}
+
 /* 팝업 */
 .map-popup {
   z-index: 2;
