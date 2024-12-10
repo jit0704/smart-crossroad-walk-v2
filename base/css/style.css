@@ -8886,6 +8886,12 @@ body.is-notify-position-adjust #notify.bottom-left {
 .dashboard-reform-body .accidents-current-legend li .tit.sudden9::before {
   background: #324b7e;
 }
+.dashboard-reform-body .accidents-current-legend li .tit.sudden10::before {
+  background: #7196c1;
+}
+.dashboard-reform-body .accidents-current-legend li .tit.sudden11::before {
+  background: #9c3cba;
+}
 .dashboard-reform-body .accidents-current-legend li .right {
   display: -webkit-box;
   display: -ms-flexbox;
