@@ -56,14 +56,31 @@
                     <div class="chart-bind">
                       <div class="chart-wrap">
                         <!-- 240201: 차트 사이즈 변경 : 120(px) X 120(px) -->
-                        <img
+                        <!-- <img
                           src="https://www.dummyimage.com/120x120/ddd/000.png&amp;text=chart"
                           alt="퍼블리싱 확인용 더미 이미지"
                           class="dummy-img"
-                        />
+                        /> -->
+
+                        <!-- 돌발이 없을 경우 노출되는 요소 -->
+                        <span class="no-outbreak">돌발 없음</span>
                       </div>
                       <!-- //chart-wrap -->
                       <ul class="accidents-current-legend">
+                        <li>
+                          <span class="tit sudden10">신호철주 미복귀</span>
+                          <div class="right">
+                            <span><em>999</em>건</span>
+                            <span><em>00</em>%</span>
+                          </div>
+                        </li>
+                        <li>
+                          <span class="tit sudden12">TP검지</span>
+                          <div class="right">
+                            <span><em>999</em>건</span>
+                            <span><em>00</em>%</span>
+                          </div>
+                        </li>
                         <li>
                           <span class="tit sudden9">꼬리물기</span>
                           <div class="right">
@@ -111,7 +128,17 @@
                     </div>
                     <!-- //chart-bind -->
                     <ul class="dashboard-noti-list">
-                      <!-- 240112 li 수정 -->
+                      <li class="no-outbreak">돌발 없음</li>
+                      <li>
+                        <em class="sign-sudden12">신호철주 미복귀</em>
+                        <span class="txt">홈플러스익스프레스천안성정점앞앞앞</span>
+                        <span class="pass">2시간 전</span>
+                      </li>
+                      <li>
+                        <em class="sign-sudden13">TP검지</em>
+                        <span class="txt">홈플러스익스프레스천안성정점앞앞앞</span>
+                        <span class="pass">2시간 전</span>
+                      </li>
                       <li>
                         <em class="sign-sudden9">꼬리물기</em>
                         <span class="txt">홈플러스익스프레스천안성정점앞앞앞</span>
@@ -144,8 +171,9 @@
                     <em>장애 현황</em>
                   </div>
                   <!-- //dashboard-reform-tit-wrap -->
-                  <ul class="dashboard-noti-list">
-                    <!-- 240112 li 수정 -->
+
+                  <!-- 장애가 없을 경우 no-obstacles 클래스명 추가 -->
+                  <ul class="dashboard-noti-list no-obstacles">
                     <li>
                       <i class="ico-hindrance1"></i>
                       <p class="txt"><em>[카메라이상]</em>태릉입구역 교차로 카메라 이상 상태</p>

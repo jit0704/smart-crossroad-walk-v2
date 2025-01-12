@@ -591,6 +591,24 @@ body ::-webkit-scrollbar-track {
   background-position: 0 0;
   background-size: contain;
 }
+.ico-set-breakout {
+  display: inline-block;
+  width: 1.5rem;
+  height: 2rem;
+  background-image: url("/base/images/set_icon_breakout.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+}
+.ico-set-vms {
+  display: inline-block;
+  width: 1.5rem;
+  height: 2rem;
+  background-image: url("/base/images/set_icon_vms.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+}
 .ico-map-above-camera {
   display: inline-block;
   width: 3rem;
@@ -1952,6 +1970,13 @@ body ::-webkit-scrollbar-track {
   border-radius: 0.5rem;
   padding: 0.7rem;
   font-size: 1.8rem;
+  background: url(/base/images/arr_down_gray.png) no-repeat calc(100% - 1rem) 50%;
+  background-size: 1.2rem 0.6rem;
+}
+.selectbox-wrap.rounded.popup select {
+  border-radius: 0.5rem;
+  padding: 0.7rem;
+  font-size: 1.6rem;
   background: url(/base/images/arr_down_gray.png) no-repeat calc(100% - 1rem) 50%;
   background-size: 1.2rem 0.6rem;
 }
@@ -4397,6 +4422,10 @@ body ::-webkit-scrollbar-track {
   padding: 1.25rem 2.3rem !important;
   font-size: 1.4rem;
 }
+.modal-body .data-tbl-very .ui.very.basic.table.md tbody td {
+  padding: 1.25rem 2.3rem !important;
+  font-size: 1.6rem;
+}
 .modal-body .data-tbl-very .ui.very.basic.table.is-chkbox tbody td {
   padding: 0.9rem 1.3rem !important;
 }
@@ -6182,6 +6211,12 @@ body.is-notify-position-adjust #notify.bottom-left {
 .ly-map .system-nav > .ico-set-item.active.cw .ico-set-signal-light {
   background-image: url(/base/images/cw/set_icon_signallight_active.png);
 }
+.ly-map .system-nav > .ico-set-item.active.breakout .ico-set-breakout {
+  background-image: url(/base/images/set_icon_breakout_active.png);
+}
+.ly-map .system-nav > .ico-set-item.active.vms .ico-set-vms {
+  background-image: url(/base/images/set_icon_vms_active.png);
+}
 .ly-map .system-nav > .ico-set-item.active em {
   color: #03a0fc;
 }
@@ -6210,6 +6245,22 @@ body.is-notify-position-adjust #notify.bottom-left {
 }
 .ly-map .system-nav.sub-signal-light .ico-set-item.active > em {
   color: #6abf60;
+}
+.ly-map.ico-set-breakout-active {
+  cursor: url(/base/images/icon_breakout_opacity.png) 23.5 59, auto;
+}
+.ly-map.ico-set-breakout-active .speech-bubble-guide {
+  top: -100px;
+  left: -100px;
+  display: block;
+}
+.ly-map.ico-set-vms-active {
+  cursor: url(/base/images/icon_vms_opacity.png) 23.5 59, auto;
+}
+.ly-map.ico-set-vms-active .speech-bubble-guide {
+  top: -100px;
+  left: -100px;
+  display: block;
 }
 .ly-map.ico-set-cr-active {
   cursor: url(/base/images/set_icon_cr_violet.png) 23.5 59, auto;
@@ -6631,8 +6682,10 @@ body.is-notify-position-adjust #notify.bottom-left {
   font-size: 3.2rem;
 }
 .login-container h1 {
-  width: 17.615rem;
-  height: 4.65rem;
+/*   width: 17.615rem; */
+/*   height: 4.65rem; */
+  width: 23.015rem;
+  height: 7.65rem;
   background-image: url("/base/images/logo.png");
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -8892,6 +8945,9 @@ body.is-notify-position-adjust #notify.bottom-left {
 .dashboard-reform-body .accidents-current-legend li .tit.sudden11::before {
   background: #9c3cba;
 }
+.dashboard-reform-body .accidents-current-legend li .tit.sudden12::before {
+  background: #9C3CB4;
+}
 .dashboard-reform-body .accidents-current-legend li .right {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8951,7 +9007,7 @@ body.is-notify-position-adjust #notify.bottom-left {
   margin-top: 0.3rem;
 }
 .dashboard-reform-body .dashboard-noti-list li [class*=sign-sudden] {
-  width: 7.1rem;
+  width: 8.4rem;
   line-height: 1.8rem;
   font-size: 1.2rem;
   font-weight: 600;
@@ -8982,11 +9038,19 @@ body.is-notify-position-adjust #notify.bottom-left {
   color: #324b7e;
   background: #d8deea;
 }
+.dashboard-reform-body .dashboard-noti-list li .sign-sudden12 {
+  color: #fff;
+  background: #7196C1;
+}
+.dashboard-reform-body .dashboard-noti-list li .sign-sudden13 {
+  color: #9C3CB4;
+  background: #F1DFF5;
+}
 .dashboard-reform-body .dashboard-noti-list li .txt {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  max-width: 16rem;
+  max-width: 15.6rem;
   font-size: 1.2rem;
   color: #727272;
   text-align: left;

@@ -1,5 +1,8 @@
 @charset "UTF-8";
 /* gnb 메뉴 추가 */
+.gnb.is-open > h1 {
+  height: 3.3rem;
+}
 .gnb .ui.menu > .item::before {
   margin-right: 1.8rem;
 }
@@ -180,11 +183,29 @@
 .dashboard-reform-body .los-top-accidents-container {
   padding-block: 2.1rem;
 }
+.dashboard-reform-body .dashboard-noti-list .no-outbreak {
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #999999;
+}
 .dashboard-reform-body .accidents-container {
   height: 43.8rem;
 }
 .dashboard-reform-body .accidents-current {
   padding-block: 2.1rem;
+}
+.dashboard-reform-body .accidents-current .chart-wrap .no-outbreak {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 12.3rem;
+  font-size: 1.2rem;
+  color: #727272;
+  border-radius: 100%;
+  background: #d9d9d9;
 }
 .dashboard-reform-body .dashboard-noti-list li .sign-sudden10 {
   color: #8db5d1;
@@ -196,6 +217,25 @@
 }
 .dashboard-reform-body .hindrance-container .dashboard-noti-list {
   margin-block: 2rem;
+}
+.dashboard-reform-body .hindrance-container .dashboard-noti-list.no-obstacles {
+  position: relative;
+  overflow: hidden;
+}
+.dashboard-reform-body .hindrance-container .dashboard-noti-list.no-obstacles::after {
+  content: "장애 없음";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  text-align: center;
+  border-radius: 0.5rem;
+  background: #d9d9d9;
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: #999999;
 }
 .dashboard-reform-body .congested-ranking-container .gap-tbl {
   height: 21.4rem;

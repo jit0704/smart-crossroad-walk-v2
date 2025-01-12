@@ -200,22 +200,22 @@
 }
 .main-stats-container .summary-info-item-wrap > li:nth-child(5) {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 18rem;
-          flex: 0 0 18rem;
+      -ms-flex: 0 0 21rem;
+          flex: 0 0 21rem;
 }
 .main-stats-container .summary-info-item-wrap > li:nth-child(5) .tbl-bind table {
   height: 14rem;
 }
 .main-stats-container .summary-info-item-wrap > li:nth-child(6) {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 24.49rem;
-          flex: 0 0 24.49rem;
+      -ms-flex: 0 0 26.49rem;
+          flex: 0 0 26.49rem;
 }
 .main-stats-container .summary-info-item-wrap > li:last-child {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
-  width: 25.1rem;
+  width: 23.1rem;
 }
 .main-stats-container .summary-info-item-wrap > li:last-child .tbl-bind table {
   height: 14rem;
@@ -239,7 +239,7 @@
 }
 .main-stats-container .summary-info-item-wrap > li.traffic-direction td span {
   display: inline-block;
-  width: 3.9rem;
+  width: 2.0rem;
   margin: 0 1rem;
   text-align: center;
 }
@@ -1495,6 +1495,17 @@
   padding: 1rem 0;
   color: #8db5d1;
   background: #ecf7ff;
+}
+.real-time-outbreak-item .outbreak-type.non-return {
+  height: 5.8rem;
+  line-height: normal;
+  padding: 1rem 0;
+  color: #fff;
+  background: #7196C1;
+}
+.real-time-outbreak-item .outbreak-type.tp {
+  color: #9C3CB4;
+  background: #F1DFF5;
 }
 .real-time-outbreak-view {
   -webkit-box-flex: 1;

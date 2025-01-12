@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>지도</title>
+    <script src="/base/js/lib/jquery-3.5.1.min.js"></script>
+    <script src="/base/js/lib/jquery-ui.min.js"></script>
+    <script src="/base/js/lib/semantic.min.js"></script>
+    <script src="/base/js/lib/jquery.modal.min.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="http://map.ngii.go.kr/emap/js/map/OpenLayers-6.4.3.js"></script>
+    <script src="http://map.ngii.go.kr/nps/common/lib/proj4js/proj4.js"></script>
+    <script src="http://map.ngii.go.kr/openapi/wmts_ngiiMap_v6.4.3.js?apikey=04trYP9_xwLAfALjwZ-B8g"></script>
+    <!-- includeHTML.js : 퍼블리싱 확인용 include -->
+    <script src="/base/js/common/includeHTML.js"></script>
+    <script src="/base/js/common/ui.js"></script>
+    <script src="/base/js/common/map-iconbar.js"></script>
+    <link rel="stylesheet" href="http://map.ngii.go.kr/emap/css/map/OpenLayers-6.4.3.css" />
+    <link rel="stylesheet" href="/base/css/common.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- GNB -->
+      <nav class="gnb" include-html="/base/html/common/gnb.html"></nav>
+
+      <main class="ly-container">
+        <div id="map1" class="ly-map">
+          <!-- 화면 위치 -->
+          <div class="ui breadcrumb">
+            <i class="home icon"></i>
+            <i class="right angle icon divider"></i>
+            <span class="section">설정</span>
+            <i class="right angle icon divider"></i>
+            <div class="active section">지점 설정</div>
+            <i class="right angle icon divider"></i>
+            <div class="section">Map 설정</div>
+          </div>
+
+          <!-- 지도 타입 선택 -->
+          <!-- <div class="map-type">
+            <label>
+              <input type="radio" checked name="maptype" />
+              <span>일반지도</span>
+            </label>
+            <label>
+              <input type="radio" name="maptype" />
+              <span>위성지도</span>
+            </label>
+          </div> -->
+          <!-- //지도 타입 선택 -->
+
+          <!-- 구역명 -->
+          <div class="ui selection dropdown area-box pos-right2">
+            <input type="hidden" name="" />
+            <div class="default text">서울시 공릉동</div>
+            <div class="menu">
+              <div class="item" data-value="">서울시 공릉동하나</div>
+              <div class="item" data-value="">서울시 서초구두울울</div>
+              <div class="item" data-value="">서울시 금천구</div>
+              <div class="item" data-value="">서울시 금천구</div>
+              <div class="item" data-value="">서울시 금천구</div>
+              <div class="item" data-value="">서울시 금천구</div>
+              <div class="item" data-value="">서울시 금천구</div>
+              <div class="item" data-value="">서울시 금천구</div>
+              <a href="#" class="area-setting">기본 구역 설정</a>
+            </div>
+          </div>
+          <!-- //구역명 -->
+
+          <!-- 우측 상단 아이콘바 -->
+          <div class="map-iconbar-container map-selection pos-right1">
+            <button type="button" class="btn-display">
+              <span><em>일반지도</em></span>
+            </button>
+            <div class="map-icon-list">
+              <button type="button" class="ic1">
+                <span><em>일반지도</em></span>
+              </button>
+              <button type="button" class="ic2">
+                <span><em>야간지도</em></span>
+              </button>
+              <button type="button" class="ic3">
+                <span><em>위성지도</em></span>
+              </button>
+            </div>
+            <!-- //map-icon-list -->
+          </div>
+          <!-- //map-iconbar-container -->
+
+          <!-- 시스템 네비게이션 -->
+          <div class="system-nav">
+            <!-- 230918 손모양 버튼 삭제 -->
+            <!-- <button type="button" class="ico-hand"><span class="screen-out">손모양 아이콘</span></button> -->
+            <!-- 230927 ico-set-item div 추가 및 수정 -->
+            <div class="ico-set-item cr">
+              <button type="button" class="ico-set-cr"><span class="screen-out">교차로 아이콘</span></button>
+              <em>교차로</em>
+            </div>
+            <!-- <div class="ico-set-item cw">
+              <button type="button" class="ico-set-cw"><span class="screen-out">횡단보도 아이콘</span></button>
+              <em>횡단보도</em>
+            </div> -->
+            <!-- 250112 돌발, vms아이콘 추가  -->
+            <div class="ico-set-item breakout">
+              <button type="button" class="ico-set-breakout"><span class="screen-out">돌발 아이콘</span></button>
+              <em>돌발</em>
+            </div>
+            <div class="ico-set-item vms">
+              <button type="button" class="ico-set-vms"><span class="screen-out">VMS 아이콘</span></button>
+              <em>VMS</em>
+            </div>
+          </div>
+
+          <i class="speech-bubble-guide"><span class="screen-out">신규지점을 추가하고 싶은 곳에 마커를 놓아주세요</span></i>
+
+          <!-- 지점 추가시 노출되는 메뉴 팝업 -->
+          <div class="menu-popup js-add-branch">
+            <a href="#">지점 정보 설정</a>
+            <a href="#">십자선 보기</a>
+            <a href="#" class="js-calcel">취소</a>
+          </div>
+          <!-- //menu-popup -->
+
+          <!-- 기 등록된 지점 아이콘 클릭시 노출되는 메뉴 팝업 -->
+          <div class="menu-popup js-existing-branch">
+            <a href="#" class="js-move-position">지점 위치 이동</a>
+            <a href="#">지점 정보 조회</a>
+            <a href="#">도로 추가</a>
+            <a href="#">십자선 보기</a>
+            <a href="#">지점 삭제</a>
+          </div>
+          <!-- //menu-popup -->
+
+          <!-- 지점 위치 이동 후 노출되는 메뉴 팝업 -->
+          <div class="menu-popup js-move-end">
+            <a href="#" class="js-complete">위치 이동 완료</a>
+            <a href="#" class="js-calcel">위치 이동 취소</a>
+          </div>
+          <!-- //menu-popup -->
+
+          <!-- <i class="ico-cw js-no-dimed-popup-call" data-target="crosswalk-popup" style="left: 300px; top: 282px">
+            <span class="screen-out">횡단보도</span>
+          </i> -->
+
+          <!-- 교차로 아이콘1 -->
+          <div class="los-display lv-a" style="left: 400px; top: 382px">
+            <i class="ico-cr">
+              <span class="screen-out">교차로</span>
+              <!-- 231121 안내 말풍선 추가 -->
+              <i class="speech-bubble-guide6"><span class="screen-out">지점을 드래그하여 원하시는 위치로 이동시키세요</span></i>
+            </i>
+
+            <i class="traffic-display top c-red" style="transform: rotate(0deg)"></i>
+            <i class="traffic-display bottom c-orange" style="transform: rotate(0deg)"></i>
+            <i class="traffic-display left" style="transform: rotate(0deg)"></i>
+            <i class="traffic-display right" style="transform: rotate(0deg)"></i>
+          </div>
+
+          <!-- 교차로 아이콘2 -->
+          <div class="los-display lv-a" style="left: 800px; top: 650px">
+            <i class="ico-cr">
+              <span class="screen-out">교차로2</span>
+              <!-- 231121 안내 말풍선 추가 -->
+              <i class="speech-bubble-guide6"><span class="screen-out">지점을 드래그하여 원하시는 위치로 이동시키세요</span></i>
+            </i>
+
+            <i class="traffic-display top c-red" style="transform: rotate(0deg)"></i>
+            <i class="traffic-display bottom c-orange" style="transform: rotate(0deg)"></i>
+            <i class="traffic-display left" style="transform: rotate(0deg)"></i>
+            <i class="traffic-display right" style="transform: rotate(0deg)"></i>
+          </div>
+
+          <!-- 231219 횡단보도 아이콘 추가 -->
+          <i class="ico-cw" style="left: 900px; top: 350px"><span class="screen-out">횡단보도</span></i>
+        </div>
+        <!-- //ly-map -->
+      </main>
+      <!-- //ly-container -->
+
+      <footer class="ly-copyright" include-html="/base/html/common/footer.html"></footer>
+    </div>
+    <!-- //wrapper -->
+
+    <script>
+      // map init
+      window.onload = function () {
+        var map1 = new ngii_wmts.map('map1', { zoom: 6 });
+      };
+
+      // map설정 함수
+      function mapSetting() {
+        // 지도 화면 우측 중간에 있는 system-nav에서 클릭된 아이콘 상태를 ly-map div태그에 class명으로 추가해주는 함수.
+        function systemNavState($this, activeState, lymapAddClass) {
+          if ($this.is(activeState)) {
+            $('.ly-map').addClass(lymapAddClass);
+          } else {
+            $('.ly-map').removeClass(lymapAddClass);
+            $('.speech-bubble-guide').hide();
+          }
+        }
+
+        // 우축 중간 시스템 네비게이션 클릭 이벤트
+        // 230927 클릭이벤트 수정
+        $('.system-nav .ico-set-item').on('click', function () {
+          var $this = $(this);
+          $this.toggleClass('active');
+          $('.system-nav .ico-set-item').not(this).removeClass('active');
+
+          // systemNavState($this, '.ico-hand.active', 'ico-hand-active'); 230918 삭제
+          systemNavState($this, '.cr.active', 'ico-set-cr-active');
+          systemNavState($this, '.cw.active', 'ico-set-cw-active');
+          // 250112 추가
+          systemNavState($this, '.breakout.active', 'ico-set-breakout-active');
+          systemNavState($this, '.vms.active', 'ico-set-vms-active');
+          // 지점 추가 메뉴 팝업 숨김
+          $('.js-add-branch').fadeOut(200);
+        });
+
+        // 마우스 커서가 교차로 아이콘으로 바뀌었을때 커서 위에 안내 말풍선 노출
+        var $speechBubble = $('.speech-bubble-guide');
+        // 250112 돌발, VMS 선택자 추가
+        $(document).on('mousemove', '.ly-map.ico-set-cr-active, .ly-map.ico-set-breakout-active, .ly-map.ico-set-vms-active', function (e) {
+          var x = e.clientX - $(this).offset().left;
+          var y = e.clientY - $(this).offset().top;
+          $speechBubble.css({
+            left: x - 24,
+            top: y - 105,
+          });
+        });
+
+        // 특정 요소에 마우스가 올라갔을때 말풍선 숨김
+        var targetParent = '.ly-map.ico-set-cr-active'; // 230927 수정
+        var targetTag = `${targetParent} .ui.dropdown.area-box, ${targetParent} .map-type, ${targetParent} .system-nav, ${targetParent} .menu-popup`;
+        $(document).on('mouseenter', targetTag, function () {
+          $speechBubble.hide();
+        });
+        $(document).on('mouseleave', targetTag, function () {
+          $speechBubble.show();
+        });
+
+        // 특정 요소에 마우스가 올라갔을때 말풍선 숨김
+        // 250112 추가
+        var targetParent2 = '.ly-map.ico-set-breakout-active'; // 230927 수정
+        var targetTag2 = `${targetParent2} .ui.dropdown.area-box, ${targetParent2} .map-type, ${targetParent2} .system-nav, ${targetParent2} .menu-popup`;
+        $(document).on('mouseenter', targetTag2, function () {
+          $speechBubble.hide();
+        });
+        $(document).on('mouseleave', targetTag2, function () {
+          $speechBubble.show();
+        });
+
+        // 특정 요소에 마우스가 올라갔을때 말풍선 숨김
+        // 250112 추가
+        var targetParent3 = '.ly-map.ico-set-vms-active'; // 230927 수정
+        var targetTag3 = `${targetParent3} .ui.dropdown.area-box, ${targetParent3} .map-type, ${targetParent3} .system-nav, ${targetParent3} .menu-popup`;
+        $(document).on('mouseenter', targetTag3, function () {
+          $speechBubble.hide();
+        });
+        $(document).on('mouseleave', targetTag3, function () {
+          $speechBubble.show();
+        });
+
+        // 마우스 커서가 교차로 아이콘으로 바뀌었을때 지도 위 클릭 이벤트: 메뉴 팝업 생성
+        // (국토지리정보원 API 호출시 지도 최상단 부모 클래스명이 ol-viewport로 나옵니다. 개발환경에서도 동일하게 나오는지 확인이 필요하고, 만약 클래스명이 다르면 ol-viewport클래스명 수정이 필요합니다. 참고 바랍니다.)
+        // 230927 ico-set-cr-active로 클래스명 수정
+        // 231219 변수 x, y값의 숫자 값 수정
+        $(document).on('click', '.ico-set-cr-active .ol-viewport', function (e) {
+          var x = e.clientX + 5;
+          var y = e.clientY + 5;
+          $('.js-add-branch').fadeIn(200).css({
+            left: x,
+            top: y,
+          });
+        });
+
+        // 메뉴 팝업의 취소 버튼 눌렀을때 메뉴 팝업 숨김
+        $('.js-add-branch .js-calcel').on('click', function (e) {
+          e.preventDefault();
+          $(this).parent().fadeOut(200);
+        });
+
+        // 기 등록된 지점 아이콘 클릭 이벤트: 메뉴 팝업 노출
+        $('.los-display .ico-cr').on('click', function (e) {
+          // los-display 요소에 data속성 추가
+          $('.los-display').each(function (idx, el) {
+            $(el).attr('data-name', `los-display${idx + 1}`);
+          });
+          var x = e.clientX + 20;
+          var y = e.clientY + 20;
+          var $dataName = $(this).parent().data('name');
+          if (!$(this).is('.moving')) {
+            $('.js-existing-branch').attr('data-name', $dataName).fadeIn(200).css({
+              left: x,
+              top: y,
+            });
+          }
+        });
+
+        // 지도 위 아무곳이나 클릭하면 기 등록된 지점 메뉴 팝업 숨김
+        // (국토지리정보원 API 호출시 지도 최상단 부모 클래스명이 ol-viewport로 나옵니다. 개발환경에서도 동일하게 나오는지 확인이 필요하고, 만약 클래스명이 다르면 ol-viewport클래스명 수정이 필요합니다. 참고 바랍니다.)
+        $(document).on('click', '.ol-viewport', function () {
+          $('.js-existing-branch').fadeOut(200);
+        });
+
+        // '지점 위치 이동' 메뉴 클릭시 교차로 아이콘 드래그 가능하도록 설정
+        $('.js-existing-branch .js-move-position').on('click', function (e) {
+          e.preventDefault();
+          var menuData = $(this).parent().attr('data-name');
+          var iconCrossRoad = $(`.los-display[data-name="${menuData}"] .ico-cr`);
+          $(this).parent().fadeOut(200);
+          iconCrossRoad.addClass('moving');
+          if (iconCrossRoad.is('.moving')) {
+            iconCrossRoad.draggable({
+              containment: '.ly-map',
+              create: function () {
+                $(this).children('.speech-bubble-guide6').show(); // 231121 추가
+              },
+              drag: function () {
+                $('.js-move-end').attr('data-name', menuData).fadeOut(200);
+                $(this).children('.speech-bubble-guide6').show(); // 231121 추가
+              },
+              stop: function (e, ui) {
+                $(this).children('.speech-bubble-guide6').hide(); // 231121 추가
+                // 드래그가 끝날 때 좌표를 저장.
+                var endX = e.clientX + 20;
+                var endY = e.clientY + 20;
+                $('.js-move-end').fadeIn(200).css({
+                  left: endX,
+                  top: endY,
+                });
+              },
+            });
+          }
+        });
+
+        // '위치 이동 완료' 버튼 클릭시 교차로 영역 재설정
+        $('.js-move-end .js-complete').on('click', function (e) {
+          e.preventDefault();
+          var menuData = $(this).parent().attr('data-name');
+          var x = parseInt($(this).parent().css('left')) - 130;
+          var y = parseInt($(this).parent().css('top')) - 50;
+          $(this).parent().fadeOut(200);
+          // 교차로 전체(상태포함) 위치를 이동
+          $(`.los-display[data-name="${menuData}"]`).css({
+            left: x,
+            top: y,
+          });
+          // 교차로 아이콘 위치를 이동
+          $(`[data-name="${menuData}"] .ico-cr`).draggable('destroy').removeClass('moving').css({
+            left: '0',
+            top: '0',
+          });
+        });
+
+        // '위치 이동 취소' 버튼 클릭시 교차로 아이콘 원복 설정
+        $('.js-move-end .js-calcel').on('click', function (e) {
+          e.preventDefault();
+          var menuData = $(this).parent().attr('data-name');
+          $(this).parent().fadeOut(200);
+          // 교차로 아이콘 위치를 원복함
+          $(`[data-name="${menuData}"] .ico-cr`).draggable('destroy').removeClass('moving').css({
+            left: '0',
+            top: '0',
+          });
+        });
+      }
+      mapSetting();
+    </script>
+  </body>
+</html>
