@@ -1,7 +1,13 @@
 @charset "UTF-8";
 /* gnb 메뉴 추가 */
+.gnb > h1 {
+  background-size: cover;
+  width: 4rem;
+  height: 2.8rem;
+  margin-left: 0.8rem;
+}
 .gnb.is-open > h1 {
-  height: 3.3rem;
+  height: 2.8rem;
 }
 .gnb .ui.menu > .item::before {
   margin-right: 1.8rem;
