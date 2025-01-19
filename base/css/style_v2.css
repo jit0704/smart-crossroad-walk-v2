@@ -189,6 +189,16 @@
 .dashboard-reform-body .los-top-accidents-container {
   padding-block: 2.1rem;
 }
+.dashboard-reform-body .los-top-accidents-container .lev-bind {
+  padding: 0 4.25rem 0 2.5rem;
+}
+.dashboard-reform-body .los-top-accidents-container .lev-left em::before {
+  display: none;
+}
+.dashboard-reform-body .los-top-accidents-container .lev-left i {
+  padding-left: 0;
+  font-size: 1.4rem;
+}
 .dashboard-reform-body .dashboard-noti-list .no-outbreak {
   justify-content: center;
   font-size: 1.2rem;
@@ -270,7 +280,7 @@
 }
 .point-list-container2 {
   overflow-y: auto;
-  height: 25.6rem;
+  height: 16.4rem;
   padding: 1.6rem 1.5rem;
   background: #fff;
 }
@@ -284,9 +294,7 @@
   align-items: center;
   align-content: center;
   gap: 0 1.1rem;
-}
-.point-list-container2 li + li {
-  margin-top: 1.16rem;
+  line-height: 2.63rem;
 }
 .point-list-container2 li em {
   width: 11.1rem;
@@ -324,6 +332,258 @@
   background: #00e9db;
 }
 
+.dashboard-reform-body > .center {
+  position: relative;
+  padding-top: 9.2rem;
+}
+.dashboard-reform-body > .center .aside-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 0 0.7rem;
+}
+.dashboard-reform-body > .center .aside-container > div:not(.toggle-button-wrap) {
+  flex: 0 0 auto;
+  width: 16.5rem;
+  height: 8.2rem;
+  padding: 0.9rem 1rem 0;
+  border-radius: 1rem;
+  border: 0.1rem solid #d5dfe7;
+  background: #f1f9ff;
+}
+.dashboard-reform-body > .center .aside-container > div:not(.toggle-button-wrap).type2 ul li {
+  letter-spacing: -0.25rem;
+  font-size: 2.2rem;
+}
+.dashboard-reform-body > .center .aside-container > div:not(.toggle-button-wrap).type2 ul li em {
+  font-size: 2.9rem;
+}
+.dashboard-reform-body > .center .aside-container > div:not(.toggle-button-wrap) .tit {
+  display: block;
+  line-height: 2.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #1a5987;
+  border-radius: 0.5rem;
+  background: #c7e3f8;
+}
+.dashboard-reform-body > .center .aside-container > div:not(.toggle-button-wrap) ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 0 0.6rem;
+  height: calc(100% - 2.5rem);
+}
+.dashboard-reform-body > .center .aside-container > div:not(.toggle-button-wrap) ul li {
+  line-height: normal;
+  font-size: 2.6rem;
+  color: #5285aa;
+}
+.dashboard-reform-body > .center .aside-container > div:not(.toggle-button-wrap) ul li:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 0 0.6rem;
+}
+.dashboard-reform-body > .center .aside-container > div:not(.toggle-button-wrap) ul li:nth-child(2)::before {
+  content: "";
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  background-image: url("/base/images/arr-right-polygon.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+  margin-right: -0.3rem;
+}
+.dashboard-reform-body > .center .aside-container > div:not(.toggle-button-wrap) ul li:nth-child(2)::after {
+  content: "";
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  background-image: url("/base/images/arr-right-polygon.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+}
+.dashboard-reform-body > .center .aside-container > div:not(.toggle-button-wrap) ul li em {
+  font-size: 3.3rem;
+  font-weight: 700;
+}
+.dashboard-reform-body > .center .aside-container > div:not(.toggle-button-wrap) ul li em.c1 {
+  color: #d40000;
+}
+.dashboard-reform-body > .center .aside-container > div:not(.toggle-button-wrap) ul li em.c2 {
+  color: #892121;
+}
+.dashboard-reform-body > .center .aside-container > div:not(.toggle-button-wrap) ul li em.c3 {
+  color: #0993ce;
+}
+.dashboard-reform-body > .center .aside-container > div:not(.toggle-button-wrap) ul li em.c4 {
+  color: #4fb500;
+}
+.dashboard-reform-body > .center .aside-container > div:not(.toggle-button-wrap) ul li em.c5 {
+  color: #37007c;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap {
+  position: relative;
+  height: 8.2rem;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .bind {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  width: 3.6rem;
+  height: 100%;
+  padding: 0;
+  background: none;
+  border: 0;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .bind button {
+  width: 100%;
+  height: 3.85rem;
+  padding: 0;
+  border-radius: 0.6rem;
+  border: 0.1rem solid #dedede;
+  background: #fff;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .bind .btn-question {
+  font-size: 2.6rem;
+  font-weight: 500;
+  color: #999999;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .bind .btn-los-lev {
+  position: relative;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .bind .btn-los-lev::before {
+  content: "";
+  display: block;
+  width: 1.8rem;
+  height: 1rem;
+  background-image: url("/base/images/arr_down_gray.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .tooltip {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  gap: 0 0.5rem;
+  display: none;
+  position: absolute;
+  top: 0.8rem;
+  right: 0.9rem;
+  min-width: 38.1rem;
+  padding: 1rem;
+  font-size: 1.6rem;
+  color: #727272;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  background: #fff;
+  box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.25);
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .tooltip.active {
+  display: flex;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .tooltip::before {
+  content: "";
+  display: block;
+  width: 2.2rem;
+  height: 2.2rem;
+  background-image: url("/base/images/icon_refer.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .tooltip-los-lev-container {
+  display: none;
+  position: absolute;
+  right: 1.5rem;
+  top: 5.2rem;
+  width: 21rem;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  background: #fff;
+  box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.25);
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .tooltip-los-lev-container.active {
+  display: block;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .tooltip-los-lev-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 0.8rem;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .tooltip-los-lev-header em {
+  font-size: 1.6rem;
+  color: #727272;
+  font-weight: 700;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .tooltip-los-lev-header time {
+  font-size: 1.2rem;
+  color: #999999;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .tooltip-los-lev-list li {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  line-height: 2.6rem;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .tooltip-los-lev-list li span {
+  flex: 0 0 auto;
+  width: 16rem;
+  font-size: 1.4rem;
+  color: #727272;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .tooltip-los-lev-list li em {
+  flex: 1;
+  text-align: right;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .tooltip-los-lev-list li em.c1 {
+  color: #d40000;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .tooltip-los-lev-list li em.c2 {
+  color: #892121;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .tooltip-los-lev-list li em.c3 {
+  color: #0993ce;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .tooltip-los-lev-list li em.c4 {
+  color: #4fb500;
+}
+.dashboard-reform-body > .center .aside-container .toggle-button-wrap .tooltip-los-lev-list li em.c5 {
+  color: #37007c;
+}
 .dashboard-reform-body > .right {
   display: flex;
   flex-direction: column;
@@ -331,6 +591,7 @@
   align-items: flex-start;
   align-content: flex-start;
   gap: 1rem 0;
+  padding-top: 9.2rem;
 }
 .dashboard-reform-body > .right > section {
   overflow: hidden;
@@ -339,7 +600,7 @@
   background: #fff;
 }
 .dashboard-reform-body .traffic-status-inner {
-  height: 48rem;
+  height: 38.8rem;
   padding: 1.6rem 2.5rem;
 }
 .dashboard-reform-body .traffic-status-inner .chart-label {
@@ -380,8 +641,7 @@
 }
 .dashboard-reform-body .traffic-status-inner .chart-wrap {
   width: 58.6rem;
-  height: 39.8rem;
-  margin: 3.17rem auto 0;
+  margin: 1rem auto 0;
 }
 .dashboard-reform-body .vms-display {
   width: 27.4rem;
@@ -859,7 +1119,7 @@
 @media screen and (max-height: 925px) {
   /* 대시보드 */
   .point-list-container2 {
-    height: 21.9rem;
+    height: 12.7rem;
   }
   .dashboard-reform-body .vms-display-container {
     height: 22.1rem;
